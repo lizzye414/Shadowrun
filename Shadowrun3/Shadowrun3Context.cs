@@ -16,7 +16,8 @@ namespace Shadowrun3
             : base("name=Shadowrun3Context")
         {
             //Database.SetInitializer<Shadowrun3Context>(new CreateDatabaseIfNotExists<Shadowrun3Context>());
-            Database.SetInitializer<Shadowrun3Context>(new DropCreateDatabaseIfModelChanges<Shadowrun3Context>());
+            //Database.SetInitializer<Shadowrun3Context>(new DropCreateDatabaseIfModelChanges<Shadowrun3Context>());
+            Database.SetInitializer<Shadowrun3Context>(new DropCreateDatabaseAlways<Shadowrun3Context>());
             //Database.SetInitializer<Shadowrun3Context>(new Shadowrun3Initializer());
 
         }
