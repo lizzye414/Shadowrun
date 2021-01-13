@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Shadowrun3
 {
-    public partial class Form1 : Form
+    public partial class FormEnemyType : Form
     {
-        public Form1()
+        public FormEnemyType()
         {
             InitializeComponent();
         }
