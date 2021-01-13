@@ -18,6 +18,7 @@ namespace Shadowrun3
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
 
+            /*
             using (var ctx = new Shadowrun3Context())
             {
 
@@ -112,7 +113,7 @@ namespace Shadowrun3
 
                 ctx.Skills.AddRange(defaultSkills);
                 ctx.SaveChanges();
-            }
+            }*/
 
         }
     }

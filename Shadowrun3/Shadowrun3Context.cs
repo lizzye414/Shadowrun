@@ -17,22 +17,30 @@ namespace Shadowrun3
         {
             //Database.SetInitializer<Shadowrun3Context>(new CreateDatabaseIfNotExists<Shadowrun3Context>());
             //Database.SetInitializer<Shadowrun3Context>(new DropCreateDatabaseIfModelChanges<Shadowrun3Context>());
-            Database.SetInitializer<Shadowrun3Context>(new DropCreateDatabaseAlways<Shadowrun3Context>());
+            //Database.SetInitializer<Shadowrun3Context>(new DropCreateDatabaseAlways<Shadowrun3Context>());
             //Database.SetInitializer<Shadowrun3Context>(new Shadowrun3Initializer());
 
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<Shadowrun3Context, Shadowrun3.Migrations.Configuration>());
+
         }
+
 
         // Add a DbSet for each entity type that you want to include in your model. For more information 
         // on configuring and using a Code First model, see http://go.microsoft.com/fwlink/?LinkId=390109.
 
         // public virtual DbSet<MyEntity> MyEntities { get; set; }
-        public virtual DbSet<SkillGroup> SkillGroups { get; set; }
-        public virtual DbSet<Skill> Skills { get; set; }
-    }
+        public DbSet<Encounter> Encounters { get; set; }
+        public DbSet<EnemyMatrixProgram> EnemyMatrixPrograms { get; set; }
+        public DbSet<EnemySkill> EnemySkills { get; set; }
+        public DbSet<EnemySkillGroup> EnemySkillGroups { get; set; }
+        public DbSet<EnemyType> EnemyTypes { get; set; }
+        public DbSet<MatrixProgram> MatrixPrograms { get; set; }
+        public DbSet<MeleeWeapon> MeleeWeapons { get; set; }
+        public DbSet<NamedEnemy> NamedEnemys { get; set; }
+        public DbSet<RangedWeapon> RangedWeapons { get; set; }
+        public DbSet<Skill> Skills { get; set; }
+        public DbSet<SkillGroup> SkillGroups { get; set; }
+        public DbSet<Spell> Spells { get; set; }
 
-    //public class MyEntity
-    //{
-    //    public int Id { get; set; }
-    //    public string Name { get; set; }
-    //}
+    }
 }
