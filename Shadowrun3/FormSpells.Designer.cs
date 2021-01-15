@@ -31,298 +31,223 @@
             this.spellName = new System.Windows.Forms.Label();
             this.spellNameTB = new System.Windows.Forms.TextBox();
             this.spellType = new System.Windows.Forms.Label();
-            this.P = new System.Windows.Forms.RadioButton();
-            this.M = new System.Windows.Forms.RadioButton();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.spellRange = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.LOS = new System.Windows.Forms.RadioButton();
-            this.LOSA = new System.Windows.Forms.RadioButton();
-            this.Touch = new System.Windows.Forms.RadioButton();
             this.spellDamage = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.damP = new System.Windows.Forms.RadioButton();
-            this.damS = new System.Windows.Forms.RadioButton();
-            this.damNA = new System.Windows.Forms.RadioButton();
             this.duration = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.sustained = new System.Windows.Forms.RadioButton();
-            this.instant = new System.Windows.Forms.RadioButton();
-            this.permanent = new System.Windows.Forms.RadioButton();
             this.dvMod = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.DVModTB = new System.Windows.Forms.TextBox();
             this.submitSpell = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
+            this.spellCategory = new System.Windows.Forms.Label();
+            this.spellTypeCB = new System.Windows.Forms.ComboBox();
+            this.spellCategoryCB = new System.Windows.Forms.ComboBox();
+            this.spellRangeCB = new System.Windows.Forms.ComboBox();
+            this.spellDamageCB = new System.Windows.Forms.ComboBox();
+            this.spellDurationCB = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.DVModNegCB = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // spellName
             // 
             this.spellName.AutoSize = true;
-            this.spellName.Location = new System.Drawing.Point(44, 66);
+            this.spellName.Location = new System.Drawing.Point(71, 98);
             this.spellName.Name = "spellName";
-            this.spellName.Size = new System.Drawing.Size(61, 13);
+            this.spellName.Size = new System.Drawing.Size(35, 13);
             this.spellName.TabIndex = 0;
-            this.spellName.Text = "Spell Name";
+            this.spellName.Text = "Name";
             // 
             // spellNameTB
             // 
-            this.spellNameTB.Location = new System.Drawing.Point(130, 66);
+            this.spellNameTB.Location = new System.Drawing.Point(129, 95);
             this.spellNameTB.Name = "spellNameTB";
-            this.spellNameTB.Size = new System.Drawing.Size(100, 20);
+            this.spellNameTB.Size = new System.Drawing.Size(121, 20);
             this.spellNameTB.TabIndex = 1;
+            this.spellNameTB.TextChanged += new System.EventHandler(this.spellNameTB_TextChanged);
             // 
             // spellType
             // 
             this.spellType.AutoSize = true;
-            this.spellType.Location = new System.Drawing.Point(44, 112);
+            this.spellType.Location = new System.Drawing.Point(71, 129);
             this.spellType.Name = "spellType";
-            this.spellType.Size = new System.Drawing.Size(57, 13);
+            this.spellType.Size = new System.Drawing.Size(31, 13);
             this.spellType.TabIndex = 2;
-            this.spellType.Text = "Spell Type";
-            // 
-            // P
-            // 
-            this.P.AutoSize = true;
-            this.P.Location = new System.Drawing.Point(12, 2);
-            this.P.Name = "P";
-            this.P.Size = new System.Drawing.Size(32, 17);
-            this.P.TabIndex = 3;
-            this.P.TabStop = true;
-            this.P.Text = "P";
-            this.P.UseVisualStyleBackColor = true;
-            // 
-            // M
-            // 
-            this.M.AutoSize = true;
-            this.M.Location = new System.Drawing.Point(50, 3);
-            this.M.Name = "M";
-            this.M.Size = new System.Drawing.Size(34, 17);
-            this.M.TabIndex = 4;
-            this.M.TabStop = true;
-            this.M.Text = "M";
-            this.M.UseVisualStyleBackColor = true;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.P);
-            this.panel1.Controls.Add(this.M);
-            this.panel1.Location = new System.Drawing.Point(130, 112);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(100, 22);
-            this.panel1.TabIndex = 5;
+            this.spellType.Text = "Type";
             // 
             // spellRange
             // 
             this.spellRange.AutoSize = true;
-            this.spellRange.Location = new System.Drawing.Point(44, 166);
+            this.spellRange.Location = new System.Drawing.Point(71, 198);
             this.spellRange.Name = "spellRange";
-            this.spellRange.Size = new System.Drawing.Size(65, 13);
+            this.spellRange.Size = new System.Drawing.Size(39, 13);
             this.spellRange.TabIndex = 6;
-            this.spellRange.Text = "Spell Range";
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.Touch);
-            this.panel2.Controls.Add(this.LOSA);
-            this.panel2.Controls.Add(this.LOS);
-            this.panel2.Location = new System.Drawing.Point(130, 166);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(182, 27);
-            this.panel2.TabIndex = 7;
-            // 
-            // LOS
-            // 
-            this.LOS.AutoSize = true;
-            this.LOS.Location = new System.Drawing.Point(3, 5);
-            this.LOS.Name = "LOS";
-            this.LOS.Size = new System.Drawing.Size(46, 17);
-            this.LOS.TabIndex = 8;
-            this.LOS.TabStop = true;
-            this.LOS.Text = "LOS";
-            this.LOS.UseVisualStyleBackColor = true;
-            // 
-            // LOSA
-            // 
-            this.LOSA.AutoSize = true;
-            this.LOSA.Location = new System.Drawing.Point(55, 5);
-            this.LOSA.Name = "LOSA";
-            this.LOSA.Size = new System.Drawing.Size(59, 17);
-            this.LOSA.TabIndex = 9;
-            this.LOSA.TabStop = true;
-            this.LOSA.Text = "LOS(A)";
-            this.LOSA.UseVisualStyleBackColor = true;
-            // 
-            // Touch
-            // 
-            this.Touch.AutoSize = true;
-            this.Touch.Location = new System.Drawing.Point(120, 5);
-            this.Touch.Name = "Touch";
-            this.Touch.Size = new System.Drawing.Size(56, 17);
-            this.Touch.TabIndex = 10;
-            this.Touch.TabStop = true;
-            this.Touch.Text = "Touch";
-            this.Touch.UseVisualStyleBackColor = true;
+            this.spellRange.Text = "Range";
             // 
             // spellDamage
             // 
             this.spellDamage.AutoSize = true;
-            this.spellDamage.Location = new System.Drawing.Point(47, 217);
+            this.spellDamage.Location = new System.Drawing.Point(71, 236);
             this.spellDamage.Name = "spellDamage";
-            this.spellDamage.Size = new System.Drawing.Size(73, 13);
+            this.spellDamage.Size = new System.Drawing.Size(47, 13);
             this.spellDamage.TabIndex = 8;
-            this.spellDamage.Text = "Spell Damage";
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.damNA);
-            this.panel3.Controls.Add(this.damS);
-            this.panel3.Controls.Add(this.damP);
-            this.panel3.Location = new System.Drawing.Point(130, 217);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(165, 26);
-            this.panel3.TabIndex = 9;
-            // 
-            // damP
-            // 
-            this.damP.AutoSize = true;
-            this.damP.Location = new System.Drawing.Point(3, 3);
-            this.damP.Name = "damP";
-            this.damP.Size = new System.Drawing.Size(32, 17);
-            this.damP.TabIndex = 0;
-            this.damP.TabStop = true;
-            this.damP.Text = "P";
-            this.damP.UseVisualStyleBackColor = true;
-            // 
-            // damS
-            // 
-            this.damS.AutoSize = true;
-            this.damS.Location = new System.Drawing.Point(36, 3);
-            this.damS.Name = "damS";
-            this.damS.Size = new System.Drawing.Size(32, 17);
-            this.damS.TabIndex = 10;
-            this.damS.TabStop = true;
-            this.damS.Text = "S";
-            this.damS.UseVisualStyleBackColor = true;
-            // 
-            // damNA
-            // 
-            this.damNA.AutoSize = true;
-            this.damNA.Location = new System.Drawing.Point(74, 3);
-            this.damNA.Name = "damNA";
-            this.damNA.Size = new System.Drawing.Size(45, 17);
-            this.damNA.TabIndex = 11;
-            this.damNA.TabStop = true;
-            this.damNA.Text = "N/A";
-            this.damNA.UseVisualStyleBackColor = true;
+            this.spellDamage.Text = "Damage";
             // 
             // duration
             // 
             this.duration.AutoSize = true;
-            this.duration.Location = new System.Drawing.Point(50, 269);
+            this.duration.Location = new System.Drawing.Point(71, 273);
             this.duration.Name = "duration";
             this.duration.Size = new System.Drawing.Size(47, 13);
             this.duration.TabIndex = 10;
             this.duration.Text = "Duration";
             // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.permanent);
-            this.panel4.Controls.Add(this.instant);
-            this.panel4.Controls.Add(this.sustained);
-            this.panel4.Location = new System.Drawing.Point(130, 269);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(225, 27);
-            this.panel4.TabIndex = 11;
-            // 
-            // sustained
-            // 
-            this.sustained.AutoSize = true;
-            this.sustained.Location = new System.Drawing.Point(4, 5);
-            this.sustained.Name = "sustained";
-            this.sustained.Size = new System.Drawing.Size(72, 17);
-            this.sustained.TabIndex = 0;
-            this.sustained.TabStop = true;
-            this.sustained.Text = "Sustained";
-            this.sustained.UseVisualStyleBackColor = true;
-            // 
-            // instant
-            // 
-            this.instant.AutoSize = true;
-            this.instant.Location = new System.Drawing.Point(83, 5);
-            this.instant.Name = "instant";
-            this.instant.Size = new System.Drawing.Size(57, 17);
-            this.instant.TabIndex = 1;
-            this.instant.TabStop = true;
-            this.instant.Text = "Instant";
-            this.instant.UseVisualStyleBackColor = true;
-            // 
-            // permanent
-            // 
-            this.permanent.AutoSize = true;
-            this.permanent.Location = new System.Drawing.Point(147, 5);
-            this.permanent.Name = "permanent";
-            this.permanent.Size = new System.Drawing.Size(76, 17);
-            this.permanent.TabIndex = 2;
-            this.permanent.TabStop = true;
-            this.permanent.Text = "Permanent";
-            this.permanent.UseVisualStyleBackColor = true;
-            // 
             // dvMod
             // 
             this.dvMod.AutoSize = true;
-            this.dvMod.Location = new System.Drawing.Point(53, 327);
+            this.dvMod.Location = new System.Drawing.Point(71, 311);
             this.dvMod.Name = "dvMod";
             this.dvMod.Size = new System.Drawing.Size(49, 13);
             this.dvMod.TabIndex = 12;
             this.dvMod.Text = "D.V.Mod";
             // 
-            // textBox1
+            // DVModTB
             // 
-            this.textBox1.Location = new System.Drawing.Point(130, 327);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(97, 20);
-            this.textBox1.TabIndex = 13;
+            this.DVModTB.Location = new System.Drawing.Point(129, 308);
+            this.DVModTB.Name = "DVModTB";
+            this.DVModTB.Size = new System.Drawing.Size(121, 20);
+            this.DVModTB.TabIndex = 13;
+            this.DVModTB.TextChanged += new System.EventHandler(this.DVModTB_TextChanged);
             // 
             // submitSpell
             // 
-            this.submitSpell.Location = new System.Drawing.Point(130, 388);
+            this.submitSpell.Location = new System.Drawing.Point(149, 349);
             this.submitSpell.Name = "submitSpell";
             this.submitSpell.Size = new System.Drawing.Size(75, 23);
             this.submitSpell.TabIndex = 14;
             this.submitSpell.Text = "Submit";
             this.submitSpell.UseVisualStyleBackColor = true;
+            this.submitSpell.Click += new System.EventHandler(this.submitSpell_Click);
+            // 
+            // spellCategory
+            // 
+            this.spellCategory.AutoSize = true;
+            this.spellCategory.Location = new System.Drawing.Point(71, 162);
+            this.spellCategory.Name = "spellCategory";
+            this.spellCategory.Size = new System.Drawing.Size(49, 13);
+            this.spellCategory.TabIndex = 15;
+            this.spellCategory.Text = "Category";
+            // 
+            // spellTypeCB
+            // 
+            this.spellTypeCB.FormattingEnabled = true;
+            this.spellTypeCB.Items.AddRange(new object[] {
+            "P",
+            "M"});
+            this.spellTypeCB.Location = new System.Drawing.Point(129, 126);
+            this.spellTypeCB.Name = "spellTypeCB";
+            this.spellTypeCB.Size = new System.Drawing.Size(121, 21);
+            this.spellTypeCB.TabIndex = 17;
+            this.spellTypeCB.SelectedIndexChanged += new System.EventHandler(this.spellTypeCB_SelectedIndexChanged);
+            // 
+            // spellCategoryCB
+            // 
+            this.spellCategoryCB.FormattingEnabled = true;
+            this.spellCategoryCB.Items.AddRange(new object[] {
+            "Combat",
+            "Detection",
+            "Health",
+            "Illusion",
+            "Manipulation"});
+            this.spellCategoryCB.Location = new System.Drawing.Point(129, 159);
+            this.spellCategoryCB.Name = "spellCategoryCB";
+            this.spellCategoryCB.Size = new System.Drawing.Size(121, 21);
+            this.spellCategoryCB.TabIndex = 18;
+            this.spellCategoryCB.SelectedIndexChanged += new System.EventHandler(this.spellCategoryCB_SelectedIndexChanged);
+            // 
+            // spellRangeCB
+            // 
+            this.spellRangeCB.FormattingEnabled = true;
+            this.spellRangeCB.Items.AddRange(new object[] {
+            "LOS",
+            "LOS(A)",
+            "Touch"});
+            this.spellRangeCB.Location = new System.Drawing.Point(129, 195);
+            this.spellRangeCB.Name = "spellRangeCB";
+            this.spellRangeCB.Size = new System.Drawing.Size(121, 21);
+            this.spellRangeCB.TabIndex = 19;
+            this.spellRangeCB.SelectedIndexChanged += new System.EventHandler(this.spellRangeCB_SelectedIndexChanged);
+            // 
+            // spellDamageCB
+            // 
+            this.spellDamageCB.FormattingEnabled = true;
+            this.spellDamageCB.Items.AddRange(new object[] {
+            "P",
+            "S",
+            "N/A"});
+            this.spellDamageCB.Location = new System.Drawing.Point(129, 233);
+            this.spellDamageCB.Name = "spellDamageCB";
+            this.spellDamageCB.Size = new System.Drawing.Size(121, 21);
+            this.spellDamageCB.TabIndex = 20;
+            this.spellDamageCB.SelectedIndexChanged += new System.EventHandler(this.spellDamageCB_SelectedIndexChanged);
+            // 
+            // spellDurationCB
+            // 
+            this.spellDurationCB.FormattingEnabled = true;
+            this.spellDurationCB.Items.AddRange(new object[] {
+            "Instant",
+            "Sustained",
+            "Permanent"});
+            this.spellDurationCB.Location = new System.Drawing.Point(129, 270);
+            this.spellDurationCB.Name = "spellDurationCB";
+            this.spellDurationCB.Size = new System.Drawing.Size(121, 21);
+            this.spellDurationCB.TabIndex = 21;
+            this.spellDurationCB.SelectedIndexChanged += new System.EventHandler(this.spellDurationCB_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(287, 19);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(154, 55);
+            this.label1.TabIndex = 22;
+            this.label1.Text = "Spells";
+            // 
+            // DVModNegCB
+            // 
+            this.DVModNegCB.AutoSize = true;
+            this.DVModNegCB.Enabled = false;
+            this.DVModNegCB.Location = new System.Drawing.Point(256, 311);
+            this.DVModNegCB.Name = "DVModNegCB";
+            this.DVModNegCB.Size = new System.Drawing.Size(73, 17);
+            this.DVModNegCB.TabIndex = 23;
+            this.DVModNegCB.Text = "negative?";
+            this.DVModNegCB.UseVisualStyleBackColor = true;
+            this.DVModNegCB.CheckedChanged += new System.EventHandler(this.DVModNegCB_CheckedChanged);
             // 
             // FormSpells
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.DVModNegCB);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.spellDurationCB);
+            this.Controls.Add(this.spellDamageCB);
+            this.Controls.Add(this.spellRangeCB);
+            this.Controls.Add(this.spellCategoryCB);
+            this.Controls.Add(this.spellTypeCB);
+            this.Controls.Add(this.spellCategory);
             this.Controls.Add(this.submitSpell);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.DVModTB);
             this.Controls.Add(this.dvMod);
-            this.Controls.Add(this.panel4);
             this.Controls.Add(this.duration);
-            this.Controls.Add(this.panel3);
             this.Controls.Add(this.spellDamage);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.spellRange);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.spellType);
             this.Controls.Add(this.spellNameTB);
             this.Controls.Add(this.spellName);
             this.Name = "FormSpells";
             this.Text = "FormSpells";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -333,26 +258,19 @@
         private System.Windows.Forms.Label spellName;
         private System.Windows.Forms.TextBox spellNameTB;
         private System.Windows.Forms.Label spellType;
-        private System.Windows.Forms.RadioButton P;
-        private System.Windows.Forms.RadioButton M;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label spellRange;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.RadioButton Touch;
-        private System.Windows.Forms.RadioButton LOSA;
-        private System.Windows.Forms.RadioButton LOS;
         private System.Windows.Forms.Label spellDamage;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.RadioButton damNA;
-        private System.Windows.Forms.RadioButton damS;
-        private System.Windows.Forms.RadioButton damP;
         private System.Windows.Forms.Label duration;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.RadioButton permanent;
-        private System.Windows.Forms.RadioButton instant;
-        private System.Windows.Forms.RadioButton sustained;
         private System.Windows.Forms.Label dvMod;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox DVModTB;
         private System.Windows.Forms.Button submitSpell;
+        private System.Windows.Forms.Label spellCategory;
+        private System.Windows.Forms.ComboBox spellTypeCB;
+        private System.Windows.Forms.ComboBox spellCategoryCB;
+        private System.Windows.Forms.ComboBox spellRangeCB;
+        private System.Windows.Forms.ComboBox spellDamageCB;
+        private System.Windows.Forms.ComboBox spellDurationCB;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox DVModNegCB;
     }
 }

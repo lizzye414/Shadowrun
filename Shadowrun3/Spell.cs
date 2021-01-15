@@ -16,18 +16,19 @@ namespace Shadowrun3
 		}
 
 		public string SpellId { get; set; }
-		public SpellType TypeofSpell { get; set; }
-		public SpellCategory CategoryOfSpell { get; set; }
+		public string TypeOfSpell { get; set; }
+		public string CategoryOfSpell { get; set; }
 
-		public SpellRange RangeofSpell { get; set; }
-		public SpellDamage DamageOfSpell { get; set; }
-		public SpellDuration DurationOfSpell { get; set; }
+		public string RangeOfSpell { get; set; }
+		public string DamageOfSpell { get; set; }
+		public string DurationOfSpell { get; set; }
 		public int DVMod { get; set; }
 
 		public virtual ICollection<EnemyType> EnemyTypes { get; set; }
 
 	}
 
+	/*
 	public enum SpellType
 	{
 		P,
@@ -62,6 +63,6 @@ namespace Shadowrun3
 		Instant,
 		Sustained,
 		Permanent
-	}
+	}*/
 
 }

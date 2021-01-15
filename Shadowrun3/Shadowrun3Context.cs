@@ -17,11 +17,16 @@ namespace Shadowrun3
         {
             //Database.SetInitializer<Shadowrun3Context>(new CreateDatabaseIfNotExists<Shadowrun3Context>());
             //Database.SetInitializer<Shadowrun3Context>(new DropCreateDatabaseIfModelChanges<Shadowrun3Context>());
-            //Database.SetInitializer<Shadowrun3Context>(new DropCreateDatabaseAlways<Shadowrun3Context>());
+            Database.SetInitializer<Shadowrun3Context>(new DropCreateDatabaseAlways<Shadowrun3Context>());
             //Database.SetInitializer<Shadowrun3Context>(new Shadowrun3Initializer());
 
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<Shadowrun3Context, Shadowrun3.Migrations.Configuration>());
 
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
         }
 
 
