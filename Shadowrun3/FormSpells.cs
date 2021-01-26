@@ -50,24 +50,30 @@ namespace Shadowrun3
             newSpell.DurationOfSpell = spellDurationCB.Text;
         }
 
-
-        private void DVModTB_TextChanged(object sender, EventArgs e)
+        private void dvModNB_ValueChanged(object sender, EventArgs e)
         {
-            newSpell.DVMod = Int32.Parse(DVModTB.Text);
-            DVModNegCB.Enabled = true;
+            newSpell.DVMod = (int)dvModNB.Value;
         }
 
-        private void DVModNegCB_CheckedChanged(object sender, EventArgs e)
-        {
-            newSpell.DVMod = (newSpell.DVMod * (-1));
-        }
 
         private void submitSpell_Click(object sender, EventArgs e)
         {
             using (var ctx = new Shadowrun3Context())
             {
-                ctx.Spells.Add(newSpell);
-                ctx.SaveChanges();
+                try
+                {
+                    ctx.Spells.Add(newSpell);
+                    ctx.SaveChanges();
+
+                    FormSpells NewForm = new FormSpells();
+                    NewForm.Show();
+                    this.Dispose(false);
+
+                }
+                catch
+                {
+                    MessageBox.Show("That spell already exists");
+                }
             }
 
         }

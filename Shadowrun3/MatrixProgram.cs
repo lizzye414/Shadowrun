@@ -9,7 +9,8 @@ namespace Shadowrun3
     public class MatrixProgram
     {
         public string MatrixProgramId { get; set; }
-        public string AssociatedSkill { get; set; }
+
+        public Skill skill { get; set; }
 
     }
 }

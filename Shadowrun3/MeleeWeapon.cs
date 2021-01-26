@@ -18,17 +18,13 @@ namespace Shadowrun3
 		public string MeleeWeaponId { get; set; }
 		public int DamageAmount { get; set; }
 		public int Reach { get; set; }
-		public MeleeDamageType TypeOfDamage { get; set; }
+		public string TypeOfDamage { get; set; }
 		public int AP { get; set; }
+
+		public Skill skill { get; set; }
 
 		public virtual ICollection<EnemyType> EnemyTypes { get; set; }
 
-	}
-
-	public enum MeleeDamageType
-	{
-		P,
-		S
 	}
 
 }

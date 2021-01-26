@@ -17,7 +17,7 @@ namespace Shadowrun3
 
 
 		public string EnemyTypeId { get; set; }
-		public MagicUserType TypeOfMagicUser { get; set; }
+		public string TypeOfMagicUser { get; set; }
 		public int Ballistic { get; set; }
 		public int Impact { get; set; }
 		public int Agility { get; set; }
@@ -36,14 +36,6 @@ namespace Shadowrun3
 		public virtual ICollection<RangedWeapon> RangedWeapons { get; set; }
 		public virtual ICollection<MeleeWeapon> MeleeWeapons { get; set; }
 
-	}
-
-	public enum MagicUserType
-	{
-		Mage,
-		Shaman,
-		Other,
-		None
 	}
 
 }

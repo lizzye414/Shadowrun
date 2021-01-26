@@ -14,18 +14,13 @@ namespace Shadowrun3
         public int CurrentMatrix { get; set; }
         public int CurrentAmmo { get; set; }
         public int CurrentEdge { get; set; }
-        public IsDead DeadOrAlive { get; set; }
+        public bool DeadOrAlive { get; set; }
+        public int CommRating { get; set; }
 
         //Foreign keys
         public EnemyType EnemyType { get; set; }
         public Encounter Encounter { get; set; }
 
-    }
-
-    public enum IsDead
-    {
-        Y,
-        N
     }
 
 }

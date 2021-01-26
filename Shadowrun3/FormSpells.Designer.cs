@@ -35,7 +35,6 @@
             this.spellDamage = new System.Windows.Forms.Label();
             this.duration = new System.Windows.Forms.Label();
             this.dvMod = new System.Windows.Forms.Label();
-            this.DVModTB = new System.Windows.Forms.TextBox();
             this.submitSpell = new System.Windows.Forms.Button();
             this.spellCategory = new System.Windows.Forms.Label();
             this.spellTypeCB = new System.Windows.Forms.ComboBox();
@@ -44,7 +43,8 @@
             this.spellDamageCB = new System.Windows.Forms.ComboBox();
             this.spellDurationCB = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.DVModNegCB = new System.Windows.Forms.CheckBox();
+            this.dvModNB = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.dvModNB)).BeginInit();
             this.SuspendLayout();
             // 
             // spellName
@@ -108,14 +108,6 @@
             this.dvMod.Size = new System.Drawing.Size(49, 13);
             this.dvMod.TabIndex = 12;
             this.dvMod.Text = "D.V.Mod";
-            // 
-            // DVModTB
-            // 
-            this.DVModTB.Location = new System.Drawing.Point(129, 308);
-            this.DVModTB.Name = "DVModTB";
-            this.DVModTB.Size = new System.Drawing.Size(121, 20);
-            this.DVModTB.TabIndex = 13;
-            this.DVModTB.TextChanged += new System.EventHandler(this.DVModTB_TextChanged);
             // 
             // submitSpell
             // 
@@ -212,24 +204,30 @@
             this.label1.TabIndex = 22;
             this.label1.Text = "Spells";
             // 
-            // DVModNegCB
+            // dvModNB
             // 
-            this.DVModNegCB.AutoSize = true;
-            this.DVModNegCB.Enabled = false;
-            this.DVModNegCB.Location = new System.Drawing.Point(256, 311);
-            this.DVModNegCB.Name = "DVModNegCB";
-            this.DVModNegCB.Size = new System.Drawing.Size(73, 17);
-            this.DVModNegCB.TabIndex = 23;
-            this.DVModNegCB.Text = "negative?";
-            this.DVModNegCB.UseVisualStyleBackColor = true;
-            this.DVModNegCB.CheckedChanged += new System.EventHandler(this.DVModNegCB_CheckedChanged);
+            this.dvModNB.Location = new System.Drawing.Point(129, 311);
+            this.dvModNB.Maximum = new decimal(new int[] {
+            4,
+            0,
+            0,
+            0});
+            this.dvModNB.Minimum = new decimal(new int[] {
+            4,
+            0,
+            0,
+            -2147483648});
+            this.dvModNB.Name = "dvModNB";
+            this.dvModNB.Size = new System.Drawing.Size(120, 20);
+            this.dvModNB.TabIndex = 23;
+            this.dvModNB.ValueChanged += new System.EventHandler(this.dvModNB_ValueChanged);
             // 
             // FormSpells
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.DVModNegCB);
+            this.Controls.Add(this.dvModNB);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.spellDurationCB);
             this.Controls.Add(this.spellDamageCB);
@@ -238,7 +236,6 @@
             this.Controls.Add(this.spellTypeCB);
             this.Controls.Add(this.spellCategory);
             this.Controls.Add(this.submitSpell);
-            this.Controls.Add(this.DVModTB);
             this.Controls.Add(this.dvMod);
             this.Controls.Add(this.duration);
             this.Controls.Add(this.spellDamage);
@@ -248,6 +245,7 @@
             this.Controls.Add(this.spellName);
             this.Name = "FormSpells";
             this.Text = "FormSpells";
+            ((System.ComponentModel.ISupportInitialize)(this.dvModNB)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -262,7 +260,6 @@
         private System.Windows.Forms.Label spellDamage;
         private System.Windows.Forms.Label duration;
         private System.Windows.Forms.Label dvMod;
-        private System.Windows.Forms.TextBox DVModTB;
         private System.Windows.Forms.Button submitSpell;
         private System.Windows.Forms.Label spellCategory;
         private System.Windows.Forms.ComboBox spellTypeCB;
@@ -271,6 +268,6 @@
         private System.Windows.Forms.ComboBox spellDamageCB;
         private System.Windows.Forms.ComboBox spellDurationCB;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckBox DVModNegCB;
+        private System.Windows.Forms.NumericUpDown dvModNB;
     }
 }

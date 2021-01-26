@@ -118,6 +118,11 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="NamedEnemy.cs" />
     <Compile Include="RangedWeapon.cs" />
+    <Compile Include="Shadowrun3ContextDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Shadowrun3ContextDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Skill.cs" />
     <Compile Include="SkillGroup.cs" />
     <Compile Include="FormMain.cs">
@@ -132,6 +137,15 @@
     <Compile Include="Spell.cs" />
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMatrixPrograms.resx">
+      <DependentUpon>FormMatrixPrograms.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMeleeWeapon.resx">
+      <DependentUpon>FormMeleeWeapon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRangedWeapon.resx">
+      <DependentUpon>FormRangedWeapon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSpells.resx">
       <DependentUpon>FormSpells.cs</DependentUpon>
@@ -161,6 +175,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Shadowrun3ContextDataSet.xsc">
+      <DependentUpon>Shadowrun3ContextDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Shadowrun3ContextDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Shadowrun3ContextDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Shadowrun3ContextDataSet.xss">
+      <DependentUpon>Shadowrun3ContextDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
