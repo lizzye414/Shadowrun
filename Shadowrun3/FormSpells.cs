@@ -78,6 +78,67 @@ namespace Shadowrun3
 
         }
 
+        private void FormSpells_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'shadowrun3ContextDataSet.Spells' table. You can move, or remove it, as needed.
+            this.spellsTableAdapter.Fill(this.shadowrun3ContextDataSet.Spells);
 
+        }
+
+        private void newRB_CheckedChanged(object sender, EventArgs e)
+        {
+            if (newRB.Checked)
+            {
+                spellNameTB.Enabled = true;
+                submitSpell.Enabled = true;
+                updateButton.Enabled = false;
+                deleteButton.Enabled = false;
+            }
+        }
+
+        private void updateRB_CheckedChanged(object sender, EventArgs e)
+        {
+            if (updateRB.Checked)
+            {
+                spellNameTB.Enabled = false;
+                submitSpell.Enabled = false;
+                updateButton.Enabled = true;
+                deleteButton.Enabled = true;
+            }
+        }
+
+        private void updateButton_Click(object sender, EventArgs e)
+        {
+            using (var ctx = new Shadowrun3Context())
+            {
+
+                Spell updatedSpell = ctx.Spells.First(a => a.SpellId == spellNameTB.Text);
+                updatedSpell.TypeOfSpell = spellTypeCB.Text;
+                updatedSpell.CategoryOfSpell = spellCategoryCB.Text;
+                updatedSpell.RangeOfSpell = spellRangeCB.Text;
+                updatedSpell.DamageOfSpell = spellDamageCB.Text;
+                updatedSpell.DurationOfSpell = spellDurationCB.Text;
+                updatedSpell.DVMod = (int)dvModNB.Value;
+                ctx.SaveChanges();
+
+                FormSpells NewForm = new FormSpells();
+                NewForm.Show();
+                this.Dispose(false);
+            }
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            using (var ctx = new Shadowrun3Context())
+            {
+
+                ctx.Spells.Remove(ctx.Spells.Single(a => a.SpellId == spellNameTB.Text));
+                ctx.SaveChanges();
+
+                FormSpells NewForm = new FormSpells();
+                NewForm.Show();
+                this.Dispose(false);
+            }
+        }
     }
 }

@@ -35,6 +35,7 @@
             this.matrixPrograms = new System.Windows.Forms.Button();
             this.namedEnemies = new System.Windows.Forms.Button();
             this.spells = new System.Windows.Forms.Button();
+            this.runEncounterButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // RangedWeapons
@@ -107,11 +108,21 @@
             this.spells.UseVisualStyleBackColor = true;
             this.spells.Click += new System.EventHandler(this.spells_Click);
             // 
+            // runEncounterButton
+            // 
+            this.runEncounterButton.Location = new System.Drawing.Point(85, 110);
+            this.runEncounterButton.Name = "runEncounterButton";
+            this.runEncounterButton.Size = new System.Drawing.Size(127, 27);
+            this.runEncounterButton.TabIndex = 7;
+            this.runEncounterButton.Text = "Run an Encounter";
+            this.runEncounterButton.UseVisualStyleBackColor = true;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.runEncounterButton);
             this.Controls.Add(this.spells);
             this.Controls.Add(this.namedEnemies);
             this.Controls.Add(this.matrixPrograms);
@@ -134,6 +145,7 @@
         private System.Windows.Forms.Button matrixPrograms;
         private System.Windows.Forms.Button namedEnemies;
         private System.Windows.Forms.Button spells;
+        private System.Windows.Forms.Button runEncounterButton;
     }
 }
 

@@ -71,6 +71,68 @@ namespace Shadowrun3
             }
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
 
+            using (var ctx = new Shadowrun3Context())
+            {
+
+                ctx.MatrixPrograms.Remove(ctx.MatrixPrograms.Single(a => a.MatrixProgramId == programNameTB.Text));
+                ctx.SaveChanges();
+
+                FormMatrixPrograms NewForm = new FormMatrixPrograms();
+                NewForm.Show();
+                this.Dispose(false);
+            }
+
+        }
+
+        private void updateButton_Click(object sender, EventArgs e)
+        {
+            using (var ctx = new Shadowrun3Context())
+            {
+                string skillString = skillCB.SelectedValue?.ToString();
+                Skill newSkill = ctx.Skills.FirstOrDefault(i => i.SkillId == skillString);
+
+                MatrixProgram updatedProg = ctx.MatrixPrograms.First(a => a.MatrixProgramId == programNameTB.Text);
+                updatedProg.skill = newSkill;
+                ctx.SaveChanges();
+
+                FormMatrixPrograms NewForm = new FormMatrixPrograms();
+                NewForm.Show();
+                this.Dispose(false);
+            }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void newRB_CheckedChanged(object sender, EventArgs e)
+        {
+
+            if(newRB.Checked)
+            {
+                programNameTB.Enabled = true;
+                programSubmitButton.Enabled = true;
+                updateButton.Enabled = false;
+                deleteButton.Enabled = false;
+            }
+
+        }
+
+        private void updateRB_CheckedChanged(object sender, EventArgs e)
+        {
+
+            if(updateRB.Checked)
+            {
+                programNameTB.Enabled = false;
+                programSubmitButton.Enabled = false;
+                updateButton.Enabled = true;
+                deleteButton.Enabled = true;
+            }
+
+        }
     }
 }
