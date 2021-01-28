@@ -54,6 +54,10 @@ namespace Shadowrun3 {
         
         private SpellsDataTable tableSpells;
         
+        private global::System.Data.DataRelation _relationFK_dbo_MeleeWeapons_dbo_Skills_Skill_SkillId;
+        
+        private global::System.Data.DataRelation _relationFK_dbo_RangedWeapons_dbo_Skills_Skill_SkillId;
+        
         private global::System.Data.DataRelation _relationFK_dbo_EnemyMatrixPrograms_dbo_EnemyTypes_EnemyType_EnemyTypeId;
         
         private global::System.Data.DataRelation _relationFK_dbo_EnemyMatrixPrograms_dbo_MatrixPrograms_MatrixProgram_MatrixProgramId;
@@ -63,8 +67,6 @@ namespace Shadowrun3 {
         private global::System.Data.DataRelation _relationFK_dbo_EnemySkillGroups_dbo_SkillGroups_SkillGroup_SkillGroupId;
         
         private global::System.Data.DataRelation _relationFK_dbo_EnemySkills_dbo_EnemyTypes_EnemyType_EnemyTypeId;
-        
-        private global::System.Data.DataRelation _relationFK_dbo_EnemySkills_dbo_Skills_Skill_SkillId;
         
         private global::System.Data.DataRelation _relationFK_dbo_MatrixPrograms_dbo_Skills_skill_SkillId;
         
@@ -85,6 +87,8 @@ namespace Shadowrun3 {
         private global::System.Data.DataRelation _relationFK_dbo_SpellEnemyTypes_dbo_EnemyTypes_EnemyType_EnemyTypeId;
         
         private global::System.Data.DataRelation _relationFK_dbo_SpellEnemyTypes_dbo_Spells_Spell_SpellId;
+        
+        private global::System.Data.DataRelation _relationFK_dbo_EnemySkills_dbo_Skills_Skill_SkillId;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -562,12 +566,13 @@ namespace Shadowrun3 {
                     this.tableSpells.InitVars();
                 }
             }
+            this._relationFK_dbo_MeleeWeapons_dbo_Skills_Skill_SkillId = this.Relations["FK_dbo.MeleeWeapons_dbo.Skills_Skill_SkillId"];
+            this._relationFK_dbo_RangedWeapons_dbo_Skills_Skill_SkillId = this.Relations["FK_dbo.RangedWeapons_dbo.Skills_Skill_SkillId"];
             this._relationFK_dbo_EnemyMatrixPrograms_dbo_EnemyTypes_EnemyType_EnemyTypeId = this.Relations["FK_dbo.EnemyMatrixPrograms_dbo.EnemyTypes_EnemyType_EnemyTypeId"];
             this._relationFK_dbo_EnemyMatrixPrograms_dbo_MatrixPrograms_MatrixProgram_MatrixProgramId = this.Relations["FK_dbo.EnemyMatrixPrograms_dbo.MatrixPrograms_MatrixProgram_MatrixProgramId"];
             this._relationFK_dbo_EnemySkillGroups_dbo_EnemyTypes_EnemyType_EnemyTypeId = this.Relations["FK_dbo.EnemySkillGroups_dbo.EnemyTypes_EnemyType_EnemyTypeId"];
             this._relationFK_dbo_EnemySkillGroups_dbo_SkillGroups_SkillGroup_SkillGroupId = this.Relations["FK_dbo.EnemySkillGroups_dbo.SkillGroups_SkillGroup_SkillGroupId"];
             this._relationFK_dbo_EnemySkills_dbo_EnemyTypes_EnemyType_EnemyTypeId = this.Relations["FK_dbo.EnemySkills_dbo.EnemyTypes_EnemyType_EnemyTypeId"];
-            this._relationFK_dbo_EnemySkills_dbo_Skills_Skill_SkillId = this.Relations["FK_dbo.EnemySkills_dbo.Skills_Skill_SkillId"];
             this._relationFK_dbo_MatrixPrograms_dbo_Skills_skill_SkillId = this.Relations["FK_dbo.MatrixPrograms_dbo.Skills_skill_SkillId"];
             this._relationFK_dbo_MeleeWeaponEnemyTypes_dbo_EnemyTypes_EnemyType_EnemyTypeId = this.Relations["FK_dbo.MeleeWeaponEnemyTypes_dbo.EnemyTypes_EnemyType_EnemyTypeId"];
             this._relationFK_dbo_MeleeWeaponEnemyTypes_dbo_MeleeWeapons_MeleeWeapon_MeleeWeaponId = this.Relations["FK_dbo.MeleeWeaponEnemyTypes_dbo.MeleeWeapons_MeleeWeapon_MeleeWeaponId"];
@@ -578,6 +583,7 @@ namespace Shadowrun3 {
             this._relationFK_dbo_Skills_dbo_SkillGroups_SkillGroup_SkillGroupId = this.Relations["FK_dbo.Skills_dbo.SkillGroups_SkillGroup_SkillGroupId"];
             this._relationFK_dbo_SpellEnemyTypes_dbo_EnemyTypes_EnemyType_EnemyTypeId = this.Relations["FK_dbo.SpellEnemyTypes_dbo.EnemyTypes_EnemyType_EnemyTypeId"];
             this._relationFK_dbo_SpellEnemyTypes_dbo_Spells_Spell_SpellId = this.Relations["FK_dbo.SpellEnemyTypes_dbo.Spells_Spell_SpellId"];
+            this._relationFK_dbo_EnemySkills_dbo_Skills_Skill_SkillId = this.Relations["FK_dbo.EnemySkills_dbo.Skills_Skill_SkillId"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -618,6 +624,29 @@ namespace Shadowrun3 {
             base.Tables.Add(this.tableSpellEnemyTypes);
             this.tableSpells = new SpellsDataTable();
             base.Tables.Add(this.tableSpells);
+            global::System.Data.ForeignKeyConstraint fkc;
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_dbo.MeleeWeapons_dbo.Skills_Skill_SkillId", new global::System.Data.DataColumn[] {
+                        this.tableSkills.SkillIdColumn}, new global::System.Data.DataColumn[] {
+                        this.tableMeleeWeapons.Skill_SkillIdColumn});
+            this.tableMeleeWeapons.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.None;
+            fkc.UpdateRule = global::System.Data.Rule.None;
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_dbo.RangedWeapons_dbo.Skills_Skill_SkillId", new global::System.Data.DataColumn[] {
+                        this.tableSkills.SkillIdColumn}, new global::System.Data.DataColumn[] {
+                        this.tableRangedWeapons.Skill_SkillIdColumn});
+            this.tableRangedWeapons.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.None;
+            fkc.UpdateRule = global::System.Data.Rule.None;
+            this._relationFK_dbo_MeleeWeapons_dbo_Skills_Skill_SkillId = new global::System.Data.DataRelation("FK_dbo.MeleeWeapons_dbo.Skills_Skill_SkillId", new global::System.Data.DataColumn[] {
+                        this.tableSkills.SkillIdColumn}, new global::System.Data.DataColumn[] {
+                        this.tableMeleeWeapons.Skill_SkillIdColumn}, false);
+            this.Relations.Add(this._relationFK_dbo_MeleeWeapons_dbo_Skills_Skill_SkillId);
+            this._relationFK_dbo_RangedWeapons_dbo_Skills_Skill_SkillId = new global::System.Data.DataRelation("FK_dbo.RangedWeapons_dbo.Skills_Skill_SkillId", new global::System.Data.DataColumn[] {
+                        this.tableSkills.SkillIdColumn}, new global::System.Data.DataColumn[] {
+                        this.tableRangedWeapons.Skill_SkillIdColumn}, false);
+            this.Relations.Add(this._relationFK_dbo_RangedWeapons_dbo_Skills_Skill_SkillId);
             this._relationFK_dbo_EnemyMatrixPrograms_dbo_EnemyTypes_EnemyType_EnemyTypeId = new global::System.Data.DataRelation("FK_dbo.EnemyMatrixPrograms_dbo.EnemyTypes_EnemyType_EnemyTypeId", new global::System.Data.DataColumn[] {
                         this.tableEnemyTypes.EnemyTypeIdColumn}, new global::System.Data.DataColumn[] {
                         this.tableEnemyMatrixPrograms.EnemyType_EnemyTypeIdColumn}, false);
@@ -638,10 +667,6 @@ namespace Shadowrun3 {
                         this.tableEnemyTypes.EnemyTypeIdColumn}, new global::System.Data.DataColumn[] {
                         this.tableEnemySkills.EnemyType_EnemyTypeIdColumn}, false);
             this.Relations.Add(this._relationFK_dbo_EnemySkills_dbo_EnemyTypes_EnemyType_EnemyTypeId);
-            this._relationFK_dbo_EnemySkills_dbo_Skills_Skill_SkillId = new global::System.Data.DataRelation("FK_dbo.EnemySkills_dbo.Skills_Skill_SkillId", new global::System.Data.DataColumn[] {
-                        this.tableSkills.SkillIdColumn}, new global::System.Data.DataColumn[] {
-                        this.tableEnemySkills.Skill_SkillIdColumn}, false);
-            this.Relations.Add(this._relationFK_dbo_EnemySkills_dbo_Skills_Skill_SkillId);
             this._relationFK_dbo_MatrixPrograms_dbo_Skills_skill_SkillId = new global::System.Data.DataRelation("FK_dbo.MatrixPrograms_dbo.Skills_skill_SkillId", new global::System.Data.DataColumn[] {
                         this.tableSkills.SkillIdColumn}, new global::System.Data.DataColumn[] {
                         this.tableMatrixPrograms.skill_SkillIdColumn}, false);
@@ -682,6 +707,10 @@ namespace Shadowrun3 {
                         this.tableSpells.SpellIdColumn}, new global::System.Data.DataColumn[] {
                         this.tableSpellEnemyTypes.Spell_SpellIdColumn}, false);
             this.Relations.Add(this._relationFK_dbo_SpellEnemyTypes_dbo_Spells_Spell_SpellId);
+            this._relationFK_dbo_EnemySkills_dbo_Skills_Skill_SkillId = new global::System.Data.DataRelation("FK_dbo.EnemySkills_dbo.Skills_Skill_SkillId", new global::System.Data.DataColumn[] {
+                        this.tableSkills.SkillIdColumn}, new global::System.Data.DataColumn[] {
+                        this.tableEnemySkills.Skill_SkillIdColumn}, false);
+            this.Relations.Add(this._relationFK_dbo_EnemySkills_dbo_Skills_Skill_SkillId);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2109,6 +2138,8 @@ namespace Shadowrun3 {
             
             private global::System.Data.DataColumn columnResonance;
             
+            private global::System.Data.DataColumn columnWillpower;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public EnemyTypesDataTable() {
@@ -2264,6 +2295,14 @@ namespace Shadowrun3 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn WillpowerColumn {
+                get {
+                    return this.columnWillpower;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2299,7 +2338,23 @@ namespace Shadowrun3 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public EnemyTypesRow AddEnemyTypesRow(string EnemyTypeId, string TypeOfMagicUser, int Ballistic, int Impact, int Agility, int Body, int Reaction, int Strength, int Charisma, int Intuition, int Logic, int Edge, int Essence, int Magic, int Resonance) {
+            public EnemyTypesRow AddEnemyTypesRow(
+                        string EnemyTypeId, 
+                        string TypeOfMagicUser, 
+                        int Ballistic, 
+                        int Impact, 
+                        int Agility, 
+                        int Body, 
+                        int Reaction, 
+                        int Strength, 
+                        int Charisma, 
+                        int Intuition, 
+                        int Logic, 
+                        int Edge, 
+                        int Essence, 
+                        int Magic, 
+                        int Resonance, 
+                        string Willpower) {
                 EnemyTypesRow rowEnemyTypesRow = ((EnemyTypesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         EnemyTypeId,
@@ -2316,7 +2371,8 @@ namespace Shadowrun3 {
                         Edge,
                         Essence,
                         Magic,
-                        Resonance};
+                        Resonance,
+                        Willpower};
                 rowEnemyTypesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowEnemyTypesRow);
                 return rowEnemyTypesRow;
@@ -2361,6 +2417,7 @@ namespace Shadowrun3 {
                 this.columnEssence = base.Columns["Essence"];
                 this.columnMagic = base.Columns["Magic"];
                 this.columnResonance = base.Columns["Resonance"];
+                this.columnWillpower = base.Columns["Willpower"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2396,6 +2453,8 @@ namespace Shadowrun3 {
                 base.Columns.Add(this.columnMagic);
                 this.columnResonance = new global::System.Data.DataColumn("Resonance", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnResonance);
+                this.columnWillpower = new global::System.Data.DataColumn("Willpower", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnWillpower);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnEnemyTypeId}, true));
                 this.columnEnemyTypeId.AllowDBNull = false;
@@ -3117,6 +3176,8 @@ namespace Shadowrun3 {
             
             private global::System.Data.DataColumn columnAP;
             
+            private global::System.Data.DataColumn columnSkill_SkillId;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public MeleeWeaponsDataTable() {
@@ -3192,6 +3253,14 @@ namespace Shadowrun3 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Skill_SkillIdColumn {
+                get {
+                    return this.columnSkill_SkillId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -3227,14 +3296,18 @@ namespace Shadowrun3 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public MeleeWeaponsRow AddMeleeWeaponsRow(string MeleeWeaponId, int DamageAmount, int Reach, string TypeOfDamage, int AP) {
+            public MeleeWeaponsRow AddMeleeWeaponsRow(string MeleeWeaponId, int DamageAmount, int Reach, string TypeOfDamage, int AP, SkillsRow _parentSkillsRowByFK_dbo_MeleeWeapons_dbo_Skills_Skill_SkillId) {
                 MeleeWeaponsRow rowMeleeWeaponsRow = ((MeleeWeaponsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         MeleeWeaponId,
                         DamageAmount,
                         Reach,
                         TypeOfDamage,
-                        AP};
+                        AP,
+                        null};
+                if ((_parentSkillsRowByFK_dbo_MeleeWeapons_dbo_Skills_Skill_SkillId != null)) {
+                    columnValuesArray[5] = _parentSkillsRowByFK_dbo_MeleeWeapons_dbo_Skills_Skill_SkillId[0];
+                }
                 rowMeleeWeaponsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowMeleeWeaponsRow);
                 return rowMeleeWeaponsRow;
@@ -3269,6 +3342,7 @@ namespace Shadowrun3 {
                 this.columnReach = base.Columns["Reach"];
                 this.columnTypeOfDamage = base.Columns["TypeOfDamage"];
                 this.columnAP = base.Columns["AP"];
+                this.columnSkill_SkillId = base.Columns["Skill_SkillId"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3284,6 +3358,8 @@ namespace Shadowrun3 {
                 base.Columns.Add(this.columnTypeOfDamage);
                 this.columnAP = new global::System.Data.DataColumn("AP", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAP);
+                this.columnSkill_SkillId = new global::System.Data.DataColumn("Skill_SkillId", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSkill_SkillId);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnMeleeWeaponId}, true));
                 this.columnMeleeWeaponId.AllowDBNull = false;
@@ -4120,6 +4196,8 @@ namespace Shadowrun3 {
             
             private global::System.Data.DataColumn columnAP;
             
+            private global::System.Data.DataColumn columnSkill_SkillId;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public RangedWeaponsDataTable() {
@@ -4203,6 +4281,14 @@ namespace Shadowrun3 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Skill_SkillIdColumn {
+                get {
+                    return this.columnSkill_SkillId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -4238,7 +4324,7 @@ namespace Shadowrun3 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public RangedWeaponsRow AddRangedWeaponsRow(string RangedWeaponId, int DamageAmount, string TypeOfDamage, string ModeOfFire, string AmmoType, int AP) {
+            public RangedWeaponsRow AddRangedWeaponsRow(string RangedWeaponId, int DamageAmount, string TypeOfDamage, string ModeOfFire, string AmmoType, int AP, SkillsRow _parentSkillsRowByFK_dbo_RangedWeapons_dbo_Skills_Skill_SkillId) {
                 RangedWeaponsRow rowRangedWeaponsRow = ((RangedWeaponsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         RangedWeaponId,
@@ -4246,7 +4332,11 @@ namespace Shadowrun3 {
                         TypeOfDamage,
                         ModeOfFire,
                         AmmoType,
-                        AP};
+                        AP,
+                        null};
+                if ((_parentSkillsRowByFK_dbo_RangedWeapons_dbo_Skills_Skill_SkillId != null)) {
+                    columnValuesArray[6] = _parentSkillsRowByFK_dbo_RangedWeapons_dbo_Skills_Skill_SkillId[0];
+                }
                 rowRangedWeaponsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowRangedWeaponsRow);
                 return rowRangedWeaponsRow;
@@ -4282,6 +4372,7 @@ namespace Shadowrun3 {
                 this.columnModeOfFire = base.Columns["ModeOfFire"];
                 this.columnAmmoType = base.Columns["AmmoType"];
                 this.columnAP = base.Columns["AP"];
+                this.columnSkill_SkillId = base.Columns["Skill_SkillId"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4299,6 +4390,8 @@ namespace Shadowrun3 {
                 base.Columns.Add(this.columnAmmoType);
                 this.columnAP = new global::System.Data.DataColumn("AP", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAP);
+                this.columnSkill_SkillId = new global::System.Data.DataColumn("Skill_SkillId", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSkill_SkillId);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnRangedWeaponId}, true));
                 this.columnRangedWeaponId.AllowDBNull = false;
@@ -6189,6 +6282,22 @@ namespace Shadowrun3 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Willpower {
+                get {
+                    try {
+                        return ((string)(this[this.tableEnemyTypes.WillpowerColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Willpower\' in table \'EnemyTypes\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEnemyTypes.WillpowerColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsTypeOfMagicUserNull() {
                 return this.IsNull(this.tableEnemyTypes.TypeOfMagicUserColumn);
             }
@@ -6197,6 +6306,18 @@ namespace Shadowrun3 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetTypeOfMagicUserNull() {
                 this[this.tableEnemyTypes.TypeOfMagicUserColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsWillpowerNull() {
+                return this.IsNull(this.tableEnemyTypes.WillpowerColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetWillpowerNull() {
+                this[this.tableEnemyTypes.WillpowerColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6488,6 +6609,33 @@ namespace Shadowrun3 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Skill_SkillId {
+                get {
+                    try {
+                        return ((string)(this[this.tableMeleeWeapons.Skill_SkillIdColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Skill_SkillId\' in table \'MeleeWeapons\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableMeleeWeapons.Skill_SkillIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public SkillsRow SkillsRow {
+                get {
+                    return ((SkillsRow)(this.GetParentRow(this.Table.ParentRelations["FK_dbo.MeleeWeapons_dbo.Skills_Skill_SkillId"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_dbo.MeleeWeapons_dbo.Skills_Skill_SkillId"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsTypeOfDamageNull() {
                 return this.IsNull(this.tableMeleeWeapons.TypeOfDamageColumn);
             }
@@ -6496,6 +6644,18 @@ namespace Shadowrun3 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetTypeOfDamageNull() {
                 this[this.tableMeleeWeapons.TypeOfDamageColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsSkill_SkillIdNull() {
+                return this.IsNull(this.tableMeleeWeapons.Skill_SkillIdColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetSkill_SkillIdNull() {
+                this[this.tableMeleeWeapons.Skill_SkillIdColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6847,6 +7007,33 @@ namespace Shadowrun3 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Skill_SkillId {
+                get {
+                    try {
+                        return ((string)(this[this.tableRangedWeapons.Skill_SkillIdColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Skill_SkillId\' in table \'RangedWeapons\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRangedWeapons.Skill_SkillIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public SkillsRow SkillsRow {
+                get {
+                    return ((SkillsRow)(this.GetParentRow(this.Table.ParentRelations["FK_dbo.RangedWeapons_dbo.Skills_Skill_SkillId"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_dbo.RangedWeapons_dbo.Skills_Skill_SkillId"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsTypeOfDamageNull() {
                 return this.IsNull(this.tableRangedWeapons.TypeOfDamageColumn);
             }
@@ -6879,6 +7066,18 @@ namespace Shadowrun3 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetAmmoTypeNull() {
                 this[this.tableRangedWeapons.AmmoTypeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsSkill_SkillIdNull() {
+                return this.IsNull(this.tableRangedWeapons.Skill_SkillIdColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetSkill_SkillIdNull() {
+                this[this.tableRangedWeapons.Skill_SkillIdColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7035,12 +7234,23 @@ namespace Shadowrun3 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public EnemySkillsRow[] GetEnemySkillsRows() {
-                if ((this.Table.ChildRelations["FK_dbo.EnemySkills_dbo.Skills_Skill_SkillId"] == null)) {
-                    return new EnemySkillsRow[0];
+            public RangedWeaponsRow[] GetRangedWeaponsRows() {
+                if ((this.Table.ChildRelations["FK_dbo.RangedWeapons_dbo.Skills_Skill_SkillId"] == null)) {
+                    return new RangedWeaponsRow[0];
                 }
                 else {
-                    return ((EnemySkillsRow[])(base.GetChildRows(this.Table.ChildRelations["FK_dbo.EnemySkills_dbo.Skills_Skill_SkillId"])));
+                    return ((RangedWeaponsRow[])(base.GetChildRows(this.Table.ChildRelations["FK_dbo.RangedWeapons_dbo.Skills_Skill_SkillId"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public MeleeWeaponsRow[] GetMeleeWeaponsRows() {
+                if ((this.Table.ChildRelations["FK_dbo.MeleeWeapons_dbo.Skills_Skill_SkillId"] == null)) {
+                    return new MeleeWeaponsRow[0];
+                }
+                else {
+                    return ((MeleeWeaponsRow[])(base.GetChildRows(this.Table.ChildRelations["FK_dbo.MeleeWeapons_dbo.Skills_Skill_SkillId"])));
                 }
             }
             
@@ -7052,6 +7262,17 @@ namespace Shadowrun3 {
                 }
                 else {
                     return ((MatrixProgramsRow[])(base.GetChildRows(this.Table.ChildRelations["FK_dbo.MatrixPrograms_dbo.Skills_skill_SkillId"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public EnemySkillsRow[] GetEnemySkillsRows() {
+                if ((this.Table.ChildRelations["FK_dbo.EnemySkills_dbo.Skills_Skill_SkillId"] == null)) {
+                    return new EnemySkillsRow[0];
+                }
+                else {
+                    return ((EnemySkillsRow[])(base.GetChildRows(this.Table.ChildRelations["FK_dbo.EnemySkills_dbo.Skills_Skill_SkillId"])));
                 }
             }
         }

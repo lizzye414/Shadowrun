@@ -80,6 +80,69 @@ namespace Shadowrun3
 
         }
 
+        private void FormMeleeWeapon_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'shadowrun3ContextDataSet.MeleeWeapons' table. You can move, or remove it, as needed.
+            this.meleeWeaponsTableAdapter.Fill(this.shadowrun3ContextDataSet.MeleeWeapons);
 
+        }
+
+        private void newRB_CheckedChanged(object sender, EventArgs e)
+        {
+            if (newRB.Checked)
+            {
+                mwIdTB.Enabled = true;
+                mwSubmitButton.Enabled = true;
+                updateButton.Enabled = false;
+                deleteButton.Enabled = false;
+            }
+        }
+
+        private void updateRB_CheckedChanged(object sender, EventArgs e)
+        {
+            if (updateRB.Checked)
+            {
+                mwIdTB.Enabled = false;
+                mwSubmitButton.Enabled = false;
+                updateButton.Enabled = true;
+                deleteButton.Enabled = true;
+            }
+        }
+
+        private void updateButton_Click(object sender, EventArgs e)
+        {
+            using (var ctx = new Shadowrun3Context())
+            {
+
+                string mwString = mwSkillCB.SelectedValue?.ToString();
+                Skill newSkill = ctx.Skills.FirstOrDefault(i => i.SkillId == mwString);
+
+                MeleeWeapon updatedMW = ctx.MeleeWeapons.First(a => a.MeleeWeaponId == mwIdTB.Text);
+                updatedMW.DamageAmount = (int)damAmtNB.Value;
+                updatedMW.TypeOfDamage = damTypeCB.Text;
+                updatedMW.Reach = (int)reachNB.Value;
+                updatedMW.AP = (int)apNB.Value;
+                updatedMW.skill = newSkill;
+                ctx.SaveChanges();
+
+                FormMeleeWeapon NewForm = new FormMeleeWeapon();
+                NewForm.Show();
+                this.Dispose(false);
+            }
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            using (var ctx = new Shadowrun3Context())
+            {
+
+                ctx.MeleeWeapons.Remove(ctx.MeleeWeapons.Single(a => a.MeleeWeaponId == mwIdTB.Text));
+                ctx.SaveChanges();
+
+                FormMeleeWeapon NewForm = new FormMeleeWeapon();
+                NewForm.Show();
+                this.Dispose(false);
+            }
+        }
     }
 }

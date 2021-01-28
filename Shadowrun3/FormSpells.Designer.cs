@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.spellName = new System.Windows.Forms.Label();
             this.spellNameTB = new System.Windows.Forms.TextBox();
+            this.spellsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.shadowrun3ContextDataSet = new Shadowrun3.Shadowrun3ContextDataSet();
             this.spellType = new System.Windows.Forms.Label();
             this.spellRange = new System.Windows.Forms.Label();
             this.spellDamage = new System.Windows.Forms.Label();
@@ -51,9 +53,6 @@
             this.deleteButton = new System.Windows.Forms.Button();
             this.updateButton = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.shadowrun3ContextDataSet = new Shadowrun3.Shadowrun3ContextDataSet();
-            this.spellsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.spellsTableAdapter = new Shadowrun3.Shadowrun3ContextDataSetTableAdapters.SpellsTableAdapter();
             this.spellIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.typeofSpellDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoryOfSpellDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,11 +60,12 @@
             this.damageOfSpellDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.durationOfSpellDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dVModDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.spellsTableAdapter = new Shadowrun3.Shadowrun3ContextDataSetTableAdapters.SpellsTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.spellsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shadowrun3ContextDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dvModNB)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.shadowrun3ContextDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spellsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // spellName
@@ -85,6 +85,16 @@
             this.spellNameTB.Size = new System.Drawing.Size(121, 20);
             this.spellNameTB.TabIndex = 1;
             this.spellNameTB.TextChanged += new System.EventHandler(this.spellNameTB_TextChanged);
+            // 
+            // spellsBindingSource
+            // 
+            this.spellsBindingSource.DataMember = "Spells";
+            this.spellsBindingSource.DataSource = this.shadowrun3ContextDataSet;
+            // 
+            // shadowrun3ContextDataSet
+            // 
+            this.shadowrun3ContextDataSet.DataSetName = "Shadowrun3ContextDataSet";
+            this.shadowrun3ContextDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // spellType
             // 
@@ -249,6 +259,7 @@
             this.dvModNB.Name = "dvModNB";
             this.dvModNB.Size = new System.Drawing.Size(120, 20);
             this.dvModNB.TabIndex = 23;
+            this.dvModNB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.dvModNB.ValueChanged += new System.EventHandler(this.dvModNB_ValueChanged);
             // 
             // panel1
@@ -322,20 +333,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(743, 338);
             this.dataGridView1.TabIndex = 35;
             // 
-            // shadowrun3ContextDataSet
-            // 
-            this.shadowrun3ContextDataSet.DataSetName = "Shadowrun3ContextDataSet";
-            this.shadowrun3ContextDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // spellsBindingSource
-            // 
-            this.spellsBindingSource.DataMember = "Spells";
-            this.spellsBindingSource.DataSource = this.shadowrun3ContextDataSet;
-            // 
-            // spellsTableAdapter
-            // 
-            this.spellsTableAdapter.ClearBeforeFill = true;
-            // 
             // spellIdDataGridViewTextBoxColumn
             // 
             this.spellIdDataGridViewTextBoxColumn.DataPropertyName = "SpellId";
@@ -378,6 +375,10 @@
             this.dVModDataGridViewTextBoxColumn.HeaderText = "DVMod";
             this.dVModDataGridViewTextBoxColumn.Name = "dVModDataGridViewTextBoxColumn";
             // 
+            // spellsTableAdapter
+            // 
+            this.spellsTableAdapter.ClearBeforeFill = true;
+            // 
             // FormSpells
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -406,12 +407,12 @@
             this.Name = "FormSpells";
             this.Text = "FormSpells";
             this.Load += new System.EventHandler(this.FormSpells_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.spellsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shadowrun3ContextDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dvModNB)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.shadowrun3ContextDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spellsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

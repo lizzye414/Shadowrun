@@ -28,9 +28,10 @@ namespace Shadowrun3
 		public int Intuition { get; set; }
 		public int Logic { get; set; }
 		public int Edge { get; set; }
-		public int Essence { get; set; }
+		public double Essence { get; set; }
 		public int Magic { get; set; }
 		public int Resonance { get; set; }
+		public int Willpower { get; set; } 
 
 		public virtual ICollection<Spell> Spells { get; set; }
 		public virtual ICollection<RangedWeapon> RangedWeapons { get; set; }

@@ -32,7 +32,7 @@ namespace Shadowrun3
 
         private void DamTypeCB_SelectedIndexChanged(object sender, EventArgs e)
         {
-            newRW.TypeOfDamage = DamTypeCB.Text;
+            newRW.TypeOfDamage = damTypeCB.Text;
         }
 
         private void modeOfFireCB_SelectedIndexChanged(object sender, EventArgs e)
@@ -82,6 +82,70 @@ namespace Shadowrun3
 
         }
 
+        private void FormRangedWeapon_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'shadowrun3ContextDataSet.RangedWeapons' table. You can move, or remove it, as needed.
+            this.rangedWeaponsTableAdapter.Fill(this.shadowrun3ContextDataSet.RangedWeapons);
 
+        }
+
+        private void newRB_CheckedChanged(object sender, EventArgs e)
+        {
+            if (newRB.Checked)
+            {
+                rwIdTB.Enabled = true;
+                rwSubmitButton.Enabled = true;
+                updateButton.Enabled = false;
+                deleteButton.Enabled = false;
+            }
+        }
+
+        private void updateRB_CheckedChanged(object sender, EventArgs e)
+        {
+            if (updateRB.Checked)
+            {
+                rwIdTB.Enabled = false;
+                rwSubmitButton.Enabled = false;
+                updateButton.Enabled = true;
+                deleteButton.Enabled = true;
+            }
+        }
+
+        private void updateButton_Click(object sender, EventArgs e)
+        {
+            using (var ctx = new Shadowrun3Context())
+            {
+
+                string rwString = rwSkillCB.SelectedValue?.ToString();
+                Skill newSkill = ctx.Skills.FirstOrDefault(i => i.SkillId == rwString);
+
+                RangedWeapon updatedRW = ctx.RangedWeapons.First(a => a.RangedWeaponId == rwIdTB.Text);
+                updatedRW.DamageAmount = (int)damAmtNB.Value;
+                updatedRW.TypeOfDamage = damTypeCB.Text;
+                updatedRW.ModeOfFire = modeOfFireCB.Text;
+                updatedRW.AmmoType = ammoTypeTB.Text;
+                updatedRW.AP = (int)apNB.Value;
+                updatedRW.skill = newSkill;
+                ctx.SaveChanges();
+
+                FormRangedWeapon NewForm = new FormRangedWeapon();
+                NewForm.Show();
+                this.Dispose(false);
+            }
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            using (var ctx = new Shadowrun3Context())
+            {
+
+                ctx.RangedWeapons.Remove(ctx.RangedWeapons.Single(a => a.RangedWeaponId == rwIdTB.Text));
+                ctx.SaveChanges();
+
+                FormRangedWeapon NewForm = new FormRangedWeapon();
+                NewForm.Show();
+                this.Dispose(false);
+            }
+        }
     }
 }
