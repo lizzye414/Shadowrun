@@ -112,6 +112,9 @@
             this.rwLB = new System.Windows.Forms.ListBox();
             this.mwLB = new System.Windows.Forms.ListBox();
             this.spellLB = new System.Windows.Forms.ListBox();
+            this.remRangedButton = new System.Windows.Forms.Button();
+            this.remMeleeButton = new System.Windows.Forms.Button();
+            this.remSpellButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.shadowrun3ContextDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.enemyTypesBindingSource1)).BeginInit();
@@ -742,7 +745,7 @@
             // addMeleeButton
             // 
             this.addMeleeButton.Enabled = false;
-            this.addMeleeButton.Location = new System.Drawing.Point(560, 221);
+            this.addMeleeButton.Location = new System.Drawing.Point(560, 206);
             this.addMeleeButton.Name = "addMeleeButton";
             this.addMeleeButton.Size = new System.Drawing.Size(75, 23);
             this.addMeleeButton.TabIndex = 87;
@@ -753,7 +756,7 @@
             // addSpellButton
             // 
             this.addSpellButton.Enabled = false;
-            this.addSpellButton.Location = new System.Drawing.Point(560, 318);
+            this.addSpellButton.Location = new System.Drawing.Point(560, 285);
             this.addSpellButton.Name = "addSpellButton";
             this.addSpellButton.Size = new System.Drawing.Size(75, 23);
             this.addSpellButton.TabIndex = 88;
@@ -946,11 +949,47 @@
             this.spellLB.Size = new System.Drawing.Size(161, 56);
             this.spellLB.TabIndex = 94;
             // 
+            // remRangedButton
+            // 
+            this.remRangedButton.Enabled = false;
+            this.remRangedButton.Location = new System.Drawing.Point(560, 159);
+            this.remRangedButton.Name = "remRangedButton";
+            this.remRangedButton.Size = new System.Drawing.Size(75, 23);
+            this.remRangedButton.TabIndex = 95;
+            this.remRangedButton.Text = "Remove";
+            this.remRangedButton.UseVisualStyleBackColor = true;
+            this.remRangedButton.Click += new System.EventHandler(this.remRangedButton_Click);
+            // 
+            // remMeleeButton
+            // 
+            this.remMeleeButton.Enabled = false;
+            this.remMeleeButton.Location = new System.Drawing.Point(560, 239);
+            this.remMeleeButton.Name = "remMeleeButton";
+            this.remMeleeButton.Size = new System.Drawing.Size(75, 23);
+            this.remMeleeButton.TabIndex = 96;
+            this.remMeleeButton.Text = "Remove";
+            this.remMeleeButton.UseVisualStyleBackColor = true;
+            this.remMeleeButton.Click += new System.EventHandler(this.remMeleeButton_Click);
+            // 
+            // remSpellButton
+            // 
+            this.remSpellButton.Enabled = false;
+            this.remSpellButton.Location = new System.Drawing.Point(560, 319);
+            this.remSpellButton.Name = "remSpellButton";
+            this.remSpellButton.Size = new System.Drawing.Size(75, 23);
+            this.remSpellButton.TabIndex = 97;
+            this.remSpellButton.Text = "Remove";
+            this.remSpellButton.UseVisualStyleBackColor = true;
+            this.remSpellButton.Click += new System.EventHandler(this.remSpellButton_Click);
+            // 
             // FormEnemyType
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(821, 628);
+            this.Controls.Add(this.remSpellButton);
+            this.Controls.Add(this.remMeleeButton);
+            this.Controls.Add(this.remRangedButton);
             this.Controls.Add(this.spellLB);
             this.Controls.Add(this.mwLB);
             this.Controls.Add(this.rwLB);
@@ -1122,5 +1161,8 @@
         private System.Windows.Forms.ListBox rwLB;
         private System.Windows.Forms.ListBox mwLB;
         private System.Windows.Forms.ListBox spellLB;
+        private System.Windows.Forms.Button remRangedButton;
+        private System.Windows.Forms.Button remMeleeButton;
+        private System.Windows.Forms.Button remSpellButton;
     }
 }

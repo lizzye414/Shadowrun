@@ -16,5 +16,10 @@ namespace Shadowrun3
         {
             InitializeComponent();
         }
+
+        private void enemyTypeCB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

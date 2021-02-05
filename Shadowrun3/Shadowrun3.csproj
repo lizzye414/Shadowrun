@@ -186,6 +186,9 @@
     <EmbeddedResource Include="FormMeleeWeapon.resx">
       <DependentUpon>FormMeleeWeapon.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNamedEnemy.resx">
+      <DependentUpon>FormNamedEnemy.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormRangedWeapon.resx">
       <DependentUpon>FormRangedWeapon.cs</DependentUpon>
     </EmbeddedResource>

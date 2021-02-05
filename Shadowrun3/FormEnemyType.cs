@@ -165,6 +165,31 @@ namespace Shadowrun3
             }
         }
 
+        private void remRangedButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void remMeleeButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void remSpellButton_Click(object sender, EventArgs e)
+        {
+            string spellString = spellLB.SelectedItem.ToString();
+            using (var ctx = new Shadowrun3Context())
+            {
+                Spell remSpell = ctx.Spells.FirstOrDefault(i => i.SpellId == spellString);
+                EnemyType updatedET = ctx.EnemyTypes.First(a => a.EnemyTypeId == nameTB.Text);
+                updatedET.Spells.Remove(remSpell);
+
+                ctx.SaveChanges();
+
+                ResetForm();
+            }
+        }
+
         private void rwSubmitButton_Click(object sender, EventArgs e)
         {
             using (var ctx = new Shadowrun3Context())
@@ -224,6 +249,9 @@ namespace Shadowrun3
                 addRangedButton.Enabled = false;
                 addMeleeButton.Enabled = false;
                 addSpellButton.Enabled = false;
+                remRangedButton.Enabled = false;
+                remMeleeButton.Enabled = false;
+                remSpellButton.Enabled = false;
             }
         }
 
@@ -238,6 +266,9 @@ namespace Shadowrun3
                 addRangedButton.Enabled = true;
                 addMeleeButton.Enabled = true;
                 addSpellButton.Enabled = true;
+                remRangedButton.Enabled = true;
+                remMeleeButton.Enabled = true;
+                remSpellButton.Enabled = true;
             }
         }
 
@@ -273,8 +304,6 @@ namespace Shadowrun3
         {
             DataGridViewRow et = dataGridView1.CurrentRow;
             string etString = et.Cells[0].Value.ToString();
-
-            //MessageBox.Show(et.Cells[0].Value.ToString());
             
             DisplayRW(etString);
             DisplayMW(etString);
@@ -349,6 +378,7 @@ namespace Shadowrun3
             }
 
         }
+
 
     }
 }

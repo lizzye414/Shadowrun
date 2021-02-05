@@ -18,41 +18,39 @@ namespace Shadowrun3
             
         }
 
-        Spell newSpell = new Spell();
-
         private void spellNameTB_TextChanged(object sender, EventArgs e)
         {
-            newSpell.SpellId = spellNameTB.Text;
+            
         }
 
         private void spellTypeCB_SelectedIndexChanged(object sender, EventArgs e)
         {
-            newSpell.TypeOfSpell = spellTypeCB.Text;
+           
         }
 
         private void spellCategoryCB_SelectedIndexChanged(object sender, EventArgs e)
         {
-            newSpell.CategoryOfSpell = spellCategoryCB.Text;
+            
         }
 
         private void spellRangeCB_SelectedIndexChanged(object sender, EventArgs e)
         {
-            newSpell.RangeOfSpell = spellRangeCB.Text;
+           
         }
 
         private void spellDamageCB_SelectedIndexChanged(object sender, EventArgs e)
         {
-            newSpell.DamageOfSpell = spellDamageCB.Text;
+            
         }
 
         private void spellDurationCB_SelectedIndexChanged(object sender, EventArgs e)
         {
-            newSpell.DurationOfSpell = spellDurationCB.Text;
+           
         }
 
         private void dvModNB_ValueChanged(object sender, EventArgs e)
         {
-            newSpell.DVMod = (int)dvModNB.Value;
+            
         }
 
 
@@ -62,12 +60,14 @@ namespace Shadowrun3
             {
                 try
                 {
-                    ctx.Spells.Add(newSpell);
+                    Spell sp = new Spell();
+                    sp.SpellId = nameTB.Text;
+                    sp = SetVar(sp);
+                    
+                    ctx.Spells.Add(sp);
                     ctx.SaveChanges();
 
-                    FormSpells NewForm = new FormSpells();
-                    NewForm.Show();
-                    this.Dispose(false);
+                    ResetForm();
 
                 }
                 catch
@@ -89,7 +89,7 @@ namespace Shadowrun3
         {
             if (newRB.Checked)
             {
-                spellNameTB.Enabled = true;
+                nameTB.Enabled = true;
                 submitSpell.Enabled = true;
                 updateButton.Enabled = false;
                 deleteButton.Enabled = false;
@@ -100,7 +100,7 @@ namespace Shadowrun3
         {
             if (updateRB.Checked)
             {
-                spellNameTB.Enabled = false;
+                nameTB.Enabled = false;
                 submitSpell.Enabled = false;
                 updateButton.Enabled = true;
                 deleteButton.Enabled = true;
@@ -112,18 +112,11 @@ namespace Shadowrun3
             using (var ctx = new Shadowrun3Context())
             {
 
-                Spell updatedSpell = ctx.Spells.First(a => a.SpellId == spellNameTB.Text);
-                updatedSpell.TypeOfSpell = spellTypeCB.Text;
-                updatedSpell.CategoryOfSpell = spellCategoryCB.Text;
-                updatedSpell.RangeOfSpell = spellRangeCB.Text;
-                updatedSpell.DamageOfSpell = spellDamageCB.Text;
-                updatedSpell.DurationOfSpell = spellDurationCB.Text;
-                updatedSpell.DVMod = (int)dvModNB.Value;
+                Spell sp = ctx.Spells.First(a => a.SpellId == nameTB.Text);
+                sp = SetVar(sp);
                 ctx.SaveChanges();
 
-                FormSpells NewForm = new FormSpells();
-                NewForm.Show();
-                this.Dispose(false);
+                ResetForm();
             }
         }
 
@@ -132,13 +125,30 @@ namespace Shadowrun3
             using (var ctx = new Shadowrun3Context())
             {
 
-                ctx.Spells.Remove(ctx.Spells.Single(a => a.SpellId == spellNameTB.Text));
+                ctx.Spells.Remove(ctx.Spells.Single(a => a.SpellId == nameTB.Text));
                 ctx.SaveChanges();
 
-                FormSpells NewForm = new FormSpells();
-                NewForm.Show();
-                this.Dispose(false);
+                ResetForm();
             }
         }
+
+        private void ResetForm()
+        {
+            FormSpells NewForm = new FormSpells();
+            NewForm.Show();
+            this.Dispose(false);
+        }
+
+        private Spell SetVar(Spell sp)
+        {
+            sp.TypeOfSpell = spellTypeCB.Text;
+            sp.CategoryOfSpell = spellCategoryCB.Text;
+            sp.RangeOfSpell = spellRangeCB.Text;
+            sp.DamageOfSpell = spellDamageCB.Text;
+            sp.DurationOfSpell = spellDurationCB.Text;
+            sp.DVMod = (int)dvModNB.Value;
+            return sp;
+        }
+
     }
 }

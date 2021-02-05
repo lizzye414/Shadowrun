@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.spellName = new System.Windows.Forms.Label();
-            this.spellNameTB = new System.Windows.Forms.TextBox();
+            this.nameTB = new System.Windows.Forms.TextBox();
             this.spellsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.shadowrun3ContextDataSet = new Shadowrun3.Shadowrun3ContextDataSet();
             this.spellType = new System.Windows.Forms.Label();
@@ -77,14 +77,14 @@
             this.spellName.TabIndex = 0;
             this.spellName.Text = "Name";
             // 
-            // spellNameTB
+            // nameTB
             // 
-            this.spellNameTB.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.spellsBindingSource, "SpellId", true));
-            this.spellNameTB.Location = new System.Drawing.Point(129, 95);
-            this.spellNameTB.Name = "spellNameTB";
-            this.spellNameTB.Size = new System.Drawing.Size(121, 20);
-            this.spellNameTB.TabIndex = 1;
-            this.spellNameTB.TextChanged += new System.EventHandler(this.spellNameTB_TextChanged);
+            this.nameTB.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.spellsBindingSource, "SpellId", true));
+            this.nameTB.Location = new System.Drawing.Point(129, 95);
+            this.nameTB.Name = "nameTB";
+            this.nameTB.Size = new System.Drawing.Size(121, 20);
+            this.nameTB.TabIndex = 1;
+            this.nameTB.TextChanged += new System.EventHandler(this.spellNameTB_TextChanged);
             // 
             // spellsBindingSource
             // 
@@ -402,7 +402,7 @@
             this.Controls.Add(this.spellDamage);
             this.Controls.Add(this.spellRange);
             this.Controls.Add(this.spellType);
-            this.Controls.Add(this.spellNameTB);
+            this.Controls.Add(this.nameTB);
             this.Controls.Add(this.spellName);
             this.Name = "FormSpells";
             this.Text = "FormSpells";
@@ -421,7 +421,7 @@
         #endregion
 
         private System.Windows.Forms.Label spellName;
-        private System.Windows.Forms.TextBox spellNameTB;
+        private System.Windows.Forms.TextBox nameTB;
         private System.Windows.Forms.Label spellType;
         private System.Windows.Forms.Label spellRange;
         private System.Windows.Forms.Label spellDamage;
