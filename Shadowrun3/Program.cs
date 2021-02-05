@@ -84,6 +84,7 @@ namespace Shadowrun3
                 defaultSkills.Add(new Skill() { SkillId = "Intimidation", Attribute = "Charisma" });
                 defaultSkills.Add(new Skill() { SkillId = "Leadership", Attribute = "Charisma", SkillGroup = Influence });
                 defaultSkills.Add(new Skill() { SkillId = "Locksmith", Attribute = "Agility" });
+                defaultSkills.Add(new Skill() { SkillId = "Longarms", Attribute = "Agility", SkillGroup = Firearms });
                 defaultSkills.Add(new Skill() { SkillId = "Medicine", Attribute = "Logic", SkillGroup = Biotech });
                 defaultSkills.Add(new Skill() { SkillId = "Nautical Mechanic", Attribute = "Logic", SkillGroup = Mechanic });
                 defaultSkills.Add(new Skill() { SkillId = "Navigation", Attribute = "Intuition", SkillGroup = Outdoors });

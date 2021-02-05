@@ -31,30 +31,25 @@
             this.components = new System.ComponentModel.Container();
             this.programName = new System.Windows.Forms.Label();
             this.programNameTB = new System.Windows.Forms.TextBox();
+            this.matrixProgramsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.shadowrun3ContextDataSet1 = new Shadowrun3.Shadowrun3ContextDataSet1();
             this.label1 = new System.Windows.Forms.Label();
             this.skillCB = new System.Windows.Forms.ComboBox();
-            this.skillsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.shadowrun3ContextDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.shadowrun3ContextDataSet = new Shadowrun3.Shadowrun3ContextDataSet();
-            this.skillsTableAdapter = new Shadowrun3.Shadowrun3ContextDataSetTableAdapters.SkillsTableAdapter();
             this.programSubmitButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.matrixProgramsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.matrixProgramsTableAdapter = new Shadowrun3.Shadowrun3ContextDataSetTableAdapters.MatrixProgramsTableAdapter();
             this.updateButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.updateRB = new System.Windows.Forms.RadioButton();
+            this.newRB = new System.Windows.Forms.RadioButton();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.matrixProgramIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.skillSkillIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.newRB = new System.Windows.Forms.RadioButton();
-            this.updateRB = new System.Windows.Forms.RadioButton();
-            ((System.ComponentModel.ISupportInitialize)(this.skillsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.shadowrun3ContextDataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.shadowrun3ContextDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.matrixProgramsTableAdapter = new Shadowrun3.Shadowrun3ContextDataSet1TableAdapters.MatrixProgramsTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.matrixProgramsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shadowrun3ContextDataSet1)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // programName
@@ -75,6 +70,16 @@
             this.programNameTB.TabIndex = 1;
             this.programNameTB.TextChanged += new System.EventHandler(this.programNameTB_TextChanged);
             // 
+            // matrixProgramsBindingSource
+            // 
+            this.matrixProgramsBindingSource.DataMember = "MatrixPrograms";
+            this.matrixProgramsBindingSource.DataSource = this.shadowrun3ContextDataSet1;
+            // 
+            // shadowrun3ContextDataSet1
+            // 
+            this.shadowrun3ContextDataSet1.DataSetName = "Shadowrun3ContextDataSet1";
+            this.shadowrun3ContextDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -86,34 +91,13 @@
             // 
             // skillCB
             // 
-            this.skillCB.DataSource = this.skillsBindingSource;
-            this.skillCB.DisplayMember = "SkillId";
+            this.skillCB.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.matrixProgramsBindingSource, "skill_SkillId", true));
             this.skillCB.FormattingEnabled = true;
             this.skillCB.Location = new System.Drawing.Point(173, 180);
             this.skillCB.Name = "skillCB";
             this.skillCB.Size = new System.Drawing.Size(162, 21);
             this.skillCB.TabIndex = 3;
-            this.skillCB.ValueMember = "SkillId";
             this.skillCB.SelectedIndexChanged += new System.EventHandler(this.skillCB_SelectedIndexChanged);
-            // 
-            // skillsBindingSource
-            // 
-            this.skillsBindingSource.DataMember = "Skills";
-            this.skillsBindingSource.DataSource = this.shadowrun3ContextDataSetBindingSource;
-            // 
-            // shadowrun3ContextDataSetBindingSource
-            // 
-            this.shadowrun3ContextDataSetBindingSource.DataSource = this.shadowrun3ContextDataSet;
-            this.shadowrun3ContextDataSetBindingSource.Position = 0;
-            // 
-            // shadowrun3ContextDataSet
-            // 
-            this.shadowrun3ContextDataSet.DataSetName = "Shadowrun3ContextDataSet";
-            this.shadowrun3ContextDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // skillsTableAdapter
-            // 
-            this.skillsTableAdapter.ClearBeforeFill = true;
             // 
             // programSubmitButton
             // 
@@ -135,34 +119,6 @@
             this.label2.Size = new System.Drawing.Size(376, 55);
             this.label2.TabIndex = 25;
             this.label2.Text = "Matrix Programs";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.matrixProgramIdDataGridViewTextBoxColumn,
-            this.skillSkillIdDataGridViewTextBoxColumn});
-            this.dataGridView1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.dataGridView1.DataSource = this.matrixProgramsBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(433, 114);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(240, 248);
-            this.dataGridView1.TabIndex = 26;
-            // 
-            // matrixProgramsBindingSource
-            // 
-            this.matrixProgramsBindingSource.DataMember = "MatrixPrograms";
-            this.matrixProgramsBindingSource.DataSource = this.shadowrun3ContextDataSetBindingSource;
-            // 
-            // matrixProgramsTableAdapter
-            // 
-            this.matrixProgramsTableAdapter.ClearBeforeFill = true;
             // 
             // updateButton
             // 
@@ -186,20 +142,6 @@
             this.deleteButton.UseVisualStyleBackColor = true;
             this.deleteButton.Click += new System.EventHandler(this.button2_Click);
             // 
-            // matrixProgramIdDataGridViewTextBoxColumn
-            // 
-            this.matrixProgramIdDataGridViewTextBoxColumn.DataPropertyName = "MatrixProgramId";
-            this.matrixProgramIdDataGridViewTextBoxColumn.HeaderText = "MatrixProgramId";
-            this.matrixProgramIdDataGridViewTextBoxColumn.Name = "matrixProgramIdDataGridViewTextBoxColumn";
-            this.matrixProgramIdDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // skillSkillIdDataGridViewTextBoxColumn
-            // 
-            this.skillSkillIdDataGridViewTextBoxColumn.DataPropertyName = "skill_SkillId";
-            this.skillSkillIdDataGridViewTextBoxColumn.HeaderText = "skill_SkillId";
-            this.skillSkillIdDataGridViewTextBoxColumn.Name = "skillSkillIdDataGridViewTextBoxColumn";
-            this.skillSkillIdDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.updateRB);
@@ -209,17 +151,6 @@
             this.panel1.Size = new System.Drawing.Size(124, 109);
             this.panel1.TabIndex = 31;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            // 
-            // newRB
-            // 
-            this.newRB.AutoSize = true;
-            this.newRB.Location = new System.Drawing.Point(7, 18);
-            this.newRB.Name = "newRB";
-            this.newRB.Size = new System.Drawing.Size(114, 17);
-            this.newRB.TabIndex = 0;
-            this.newRB.Text = "Enter new program";
-            this.newRB.UseVisualStyleBackColor = true;
-            this.newRB.CheckedChanged += new System.EventHandler(this.newRB_CheckedChanged);
             // 
             // updateRB
             // 
@@ -232,15 +163,55 @@
             this.updateRB.UseVisualStyleBackColor = true;
             this.updateRB.CheckedChanged += new System.EventHandler(this.updateRB_CheckedChanged);
             // 
+            // newRB
+            // 
+            this.newRB.AutoSize = true;
+            this.newRB.Location = new System.Drawing.Point(7, 18);
+            this.newRB.Name = "newRB";
+            this.newRB.Size = new System.Drawing.Size(114, 17);
+            this.newRB.TabIndex = 0;
+            this.newRB.Text = "Enter new program";
+            this.newRB.UseVisualStyleBackColor = true;
+            this.newRB.CheckedChanged += new System.EventHandler(this.newRB_CheckedChanged);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.matrixProgramIdDataGridViewTextBoxColumn,
+            this.skillSkillIdDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.matrixProgramsBindingSource;
+            this.dataGridView1.Location = new System.Drawing.Point(401, 114);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(240, 248);
+            this.dataGridView1.TabIndex = 32;
+            // 
+            // matrixProgramIdDataGridViewTextBoxColumn
+            // 
+            this.matrixProgramIdDataGridViewTextBoxColumn.DataPropertyName = "MatrixProgramId";
+            this.matrixProgramIdDataGridViewTextBoxColumn.HeaderText = "Matrix Program";
+            this.matrixProgramIdDataGridViewTextBoxColumn.Name = "matrixProgramIdDataGridViewTextBoxColumn";
+            // 
+            // skillSkillIdDataGridViewTextBoxColumn
+            // 
+            this.skillSkillIdDataGridViewTextBoxColumn.DataPropertyName = "skill_SkillId";
+            this.skillSkillIdDataGridViewTextBoxColumn.HeaderText = "Skill";
+            this.skillSkillIdDataGridViewTextBoxColumn.Name = "skillSkillIdDataGridViewTextBoxColumn";
+            // 
+            // matrixProgramsTableAdapter
+            // 
+            this.matrixProgramsTableAdapter.ClearBeforeFill = true;
+            // 
             // FormMatrixPrograms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.updateButton);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.programSubmitButton);
             this.Controls.Add(this.skillCB);
@@ -250,13 +221,11 @@
             this.Name = "FormMatrixPrograms";
             this.Text = "FormMatrixPrograms";
             this.Load += new System.EventHandler(this.FormMatrixPrograms_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.skillsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.shadowrun3ContextDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.shadowrun3ContextDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.matrixProgramsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shadowrun3ContextDataSet1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -267,22 +236,19 @@
         private System.Windows.Forms.Label programName;
         private System.Windows.Forms.TextBox programNameTB;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.BindingSource shadowrun3ContextDataSetBindingSource;
-        private Shadowrun3ContextDataSet shadowrun3ContextDataSet;
-        private System.Windows.Forms.BindingSource skillsBindingSource;
-        private Shadowrun3ContextDataSetTableAdapters.SkillsTableAdapter skillsTableAdapter;
         private System.Windows.Forms.Button programSubmitButton;
         public System.Windows.Forms.ComboBox skillCB;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.BindingSource matrixProgramsBindingSource;
-        private Shadowrun3ContextDataSetTableAdapters.MatrixProgramsTableAdapter matrixProgramsTableAdapter;
         private System.Windows.Forms.Button updateButton;
         private System.Windows.Forms.Button deleteButton;
-        private System.Windows.Forms.DataGridViewTextBoxColumn matrixProgramIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn skillSkillIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.RadioButton updateRB;
         private System.Windows.Forms.RadioButton newRB;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private Shadowrun3ContextDataSet1 shadowrun3ContextDataSet1;
+        private System.Windows.Forms.BindingSource matrixProgramsBindingSource;
+        private Shadowrun3ContextDataSet1TableAdapters.MatrixProgramsTableAdapter matrixProgramsTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn matrixProgramIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn skillSkillIdDataGridViewTextBoxColumn;
     }
 }

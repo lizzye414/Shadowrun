@@ -36,7 +36,6 @@
             this.updateButton = new System.Windows.Forms.Button();
             this.rwSubmitButton = new System.Windows.Forms.Button();
             this.shadowrun3ContextDataSet = new Shadowrun3.Shadowrun3ContextDataSet();
-            this.enemyTypesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.enemyTypesTableAdapter = new Shadowrun3.Shadowrun3ContextDataSetTableAdapters.EnemyTypesTableAdapter();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -59,6 +58,8 @@
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.nameTB = new System.Windows.Forms.TextBox();
+            this.enemyTypesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.shadowrun3ContextDataSet1 = new Shadowrun3.Shadowrun3ContextDataSet1();
             this.mUTypeCB = new System.Windows.Forms.ComboBox();
             this.ballisticNB = new System.Windows.Forms.NumericUpDown();
             this.impactNB = new System.Windows.Forms.NumericUpDown();
@@ -86,10 +87,35 @@
             this.addRangedButton = new System.Windows.Forms.Button();
             this.addMeleeButton = new System.Windows.Forms.Button();
             this.addSpellButton = new System.Windows.Forms.Button();
+            this.sysRatingNB = new System.Windows.Forms.NumericUpDown();
+            this.label21 = new System.Windows.Forms.Label();
+            this.enemyTypesTableAdapter1 = new Shadowrun3.Shadowrun3ContextDataSet1TableAdapters.EnemyTypesTableAdapter();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.enemyTypeIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.typeOfMagicUserDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ballisticDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.impactDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.agilityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bodyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.reactionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.strengthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.charismaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.intuitionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.logicDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.edgeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.essenceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.magicDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.resonanceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.willpowerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fKdboRangedWeaponEnemyTypesdboRangedWeaponsRangedWeaponRangedWeaponIdBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.fKdboRangedWeaponEnemyTypesdboEnemyTypesEnemyTypeEnemyTypeIdBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.rwLB = new System.Windows.Forms.ListBox();
+            this.mwLB = new System.Windows.Forms.ListBox();
+            this.spellLB = new System.Windows.Forms.ListBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.shadowrun3ContextDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.enemyTypesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.enemyTypesBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shadowrun3ContextDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ballisticNB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.impactNB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edgeNB)).BeginInit();
@@ -107,6 +133,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.rangedWeaponsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spellsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.meleeWeaponsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sysRatingNB)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fKdboRangedWeaponEnemyTypesdboRangedWeaponsRangedWeaponRangedWeaponIdBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fKdboRangedWeaponEnemyTypesdboEnemyTypesEnemyTypeEnemyTypeIdBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -179,11 +208,6 @@
             this.shadowrun3ContextDataSet.DataSetName = "Shadowrun3ContextDataSet";
             this.shadowrun3ContextDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // enemyTypesBindingSource
-            // 
-            this.enemyTypesBindingSource.DataMember = "EnemyTypes";
-            this.enemyTypesBindingSource.DataSource = this.shadowrun3ContextDataSet;
-            // 
             // enemyTypesTableAdapter
             // 
             this.enemyTypesTableAdapter.ClearBeforeFill = true;
@@ -192,7 +216,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(137, 9);
+            this.label2.Location = new System.Drawing.Point(249, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(318, 55);
             this.label2.TabIndex = 47;
@@ -371,23 +395,33 @@
             // 
             // nameTB
             // 
-            this.nameTB.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.enemyTypesBindingSource, "EnemyTypeId", true));
-            this.nameTB.Location = new System.Drawing.Point(86, 107);
+            this.nameTB.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.enemyTypesBindingSource1, "EnemyTypeId", true));
+            this.nameTB.Location = new System.Drawing.Point(92, 107);
             this.nameTB.Name = "nameTB";
             this.nameTB.Size = new System.Drawing.Size(121, 20);
             this.nameTB.TabIndex = 67;
             this.nameTB.TextChanged += new System.EventHandler(this.nameTB_TextChanged);
             // 
+            // enemyTypesBindingSource1
+            // 
+            this.enemyTypesBindingSource1.DataMember = "EnemyTypes";
+            this.enemyTypesBindingSource1.DataSource = this.shadowrun3ContextDataSet1;
+            // 
+            // shadowrun3ContextDataSet1
+            // 
+            this.shadowrun3ContextDataSet1.DataSetName = "Shadowrun3ContextDataSet1";
+            this.shadowrun3ContextDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // mUTypeCB
             // 
-            this.mUTypeCB.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.enemyTypesBindingSource, "TypeOfMagicUser", true));
+            this.mUTypeCB.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.enemyTypesBindingSource1, "TypeOfMagicUser", true));
             this.mUTypeCB.FormattingEnabled = true;
             this.mUTypeCB.Items.AddRange(new object[] {
             "Mage",
             "Shaman",
             "Other",
             "N/A"});
-            this.mUTypeCB.Location = new System.Drawing.Point(86, 130);
+            this.mUTypeCB.Location = new System.Drawing.Point(92, 130);
             this.mUTypeCB.Name = "mUTypeCB";
             this.mUTypeCB.Size = new System.Drawing.Size(121, 21);
             this.mUTypeCB.TabIndex = 68;
@@ -395,8 +429,8 @@
             // 
             // ballisticNB
             // 
-            this.ballisticNB.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.enemyTypesBindingSource, "Ballistic", true));
-            this.ballisticNB.Location = new System.Drawing.Point(86, 153);
+            this.ballisticNB.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.enemyTypesBindingSource1, "Ballistic", true));
+            this.ballisticNB.Location = new System.Drawing.Point(92, 153);
             this.ballisticNB.Name = "ballisticNB";
             this.ballisticNB.Size = new System.Drawing.Size(120, 20);
             this.ballisticNB.TabIndex = 69;
@@ -405,8 +439,8 @@
             // 
             // impactNB
             // 
-            this.impactNB.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.enemyTypesBindingSource, "Impact", true));
-            this.impactNB.Location = new System.Drawing.Point(86, 176);
+            this.impactNB.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.enemyTypesBindingSource1, "Impact", true));
+            this.impactNB.Location = new System.Drawing.Point(92, 176);
             this.impactNB.Name = "impactNB";
             this.impactNB.Size = new System.Drawing.Size(120, 20);
             this.impactNB.TabIndex = 70;
@@ -415,8 +449,8 @@
             // 
             // edgeNB
             // 
-            this.edgeNB.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.enemyTypesBindingSource, "Edge", true));
-            this.edgeNB.Location = new System.Drawing.Point(86, 198);
+            this.edgeNB.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.enemyTypesBindingSource1, "Edge", true));
+            this.edgeNB.Location = new System.Drawing.Point(92, 198);
             this.edgeNB.Maximum = new decimal(new int[] {
             15,
             0,
@@ -430,14 +464,14 @@
             // 
             // essenceNB
             // 
-            this.essenceNB.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.enemyTypesBindingSource, "Essence", true));
+            this.essenceNB.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.enemyTypesBindingSource1, "Essence", true));
             this.essenceNB.DecimalPlaces = 1;
             this.essenceNB.Increment = new decimal(new int[] {
             1,
             0,
             0,
             65536});
-            this.essenceNB.Location = new System.Drawing.Point(86, 220);
+            this.essenceNB.Location = new System.Drawing.Point(92, 220);
             this.essenceNB.Name = "essenceNB";
             this.essenceNB.Size = new System.Drawing.Size(120, 20);
             this.essenceNB.TabIndex = 72;
@@ -446,8 +480,8 @@
             // 
             // magicNB
             // 
-            this.magicNB.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.enemyTypesBindingSource, "Magic", true));
-            this.magicNB.Location = new System.Drawing.Point(86, 242);
+            this.magicNB.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.enemyTypesBindingSource1, "Magic", true));
+            this.magicNB.Location = new System.Drawing.Point(92, 242);
             this.magicNB.Maximum = new decimal(new int[] {
             10,
             0,
@@ -461,8 +495,8 @@
             // 
             // resonanceNB
             // 
-            this.resonanceNB.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.enemyTypesBindingSource, "Resonance", true));
-            this.resonanceNB.Location = new System.Drawing.Point(86, 264);
+            this.resonanceNB.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.enemyTypesBindingSource1, "Resonance", true));
+            this.resonanceNB.Location = new System.Drawing.Point(92, 264);
             this.resonanceNB.Maximum = new decimal(new int[] {
             10,
             0,
@@ -476,7 +510,7 @@
             // 
             // agilityNB
             // 
-            this.agilityNB.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.enemyTypesBindingSource, "Agility", true));
+            this.agilityNB.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.enemyTypesBindingSource1, "Agility", true));
             this.agilityNB.Location = new System.Drawing.Point(294, 109);
             this.agilityNB.Maximum = new decimal(new int[] {
             10,
@@ -496,7 +530,7 @@
             // 
             // charismaNB
             // 
-            this.charismaNB.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.enemyTypesBindingSource, "Charisma", true));
+            this.charismaNB.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.enemyTypesBindingSource1, "Charisma", true));
             this.charismaNB.Location = new System.Drawing.Point(294, 131);
             this.charismaNB.Maximum = new decimal(new int[] {
             10,
@@ -516,7 +550,7 @@
             // 
             // bodyNB
             // 
-            this.bodyNB.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.enemyTypesBindingSource, "Body", true));
+            this.bodyNB.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.enemyTypesBindingSource1, "Body", true));
             this.bodyNB.Location = new System.Drawing.Point(294, 153);
             this.bodyNB.Maximum = new decimal(new int[] {
             10,
@@ -536,7 +570,7 @@
             // 
             // intuitionNB
             // 
-            this.intuitionNB.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.enemyTypesBindingSource, "Intuition", true));
+            this.intuitionNB.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.enemyTypesBindingSource1, "Intuition", true));
             this.intuitionNB.Location = new System.Drawing.Point(294, 176);
             this.intuitionNB.Maximum = new decimal(new int[] {
             10,
@@ -556,7 +590,7 @@
             // 
             // reactionNB
             // 
-            this.reactionNB.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.enemyTypesBindingSource, "Reaction", true));
+            this.reactionNB.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.enemyTypesBindingSource1, "Reaction", true));
             this.reactionNB.Location = new System.Drawing.Point(294, 198);
             this.reactionNB.Maximum = new decimal(new int[] {
             10,
@@ -576,7 +610,7 @@
             // 
             // logicNB
             // 
-            this.logicNB.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.enemyTypesBindingSource, "Logic", true));
+            this.logicNB.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.enemyTypesBindingSource1, "Logic", true));
             this.logicNB.Location = new System.Drawing.Point(294, 220);
             this.logicNB.Maximum = new decimal(new int[] {
             10,
@@ -596,7 +630,7 @@
             // 
             // strengthNB
             // 
-            this.strengthNB.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.enemyTypesBindingSource, "Strength", true));
+            this.strengthNB.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.enemyTypesBindingSource1, "Strength", true));
             this.strengthNB.Location = new System.Drawing.Point(294, 242);
             this.strengthNB.Maximum = new decimal(new int[] {
             10,
@@ -616,7 +650,7 @@
             // 
             // willpowerNB
             // 
-            this.willpowerNB.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.enemyTypesBindingSource, "Willpower", true));
+            this.willpowerNB.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.enemyTypesBindingSource1, "Willpower", true));
             this.willpowerNB.Location = new System.Drawing.Point(294, 264);
             this.willpowerNB.Maximum = new decimal(new int[] {
             10,
@@ -727,16 +761,202 @@
             this.addSpellButton.UseVisualStyleBackColor = true;
             this.addSpellButton.Click += new System.EventHandler(this.addSpellButton_Click);
             // 
+            // sysRatingNB
+            // 
+            this.sysRatingNB.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.enemyTypesBindingSource1, "SystemRating", true));
+            this.sysRatingNB.Location = new System.Drawing.Point(92, 285);
+            this.sysRatingNB.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.sysRatingNB.Name = "sysRatingNB";
+            this.sysRatingNB.Size = new System.Drawing.Size(120, 20);
+            this.sysRatingNB.TabIndex = 89;
+            this.sysRatingNB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(13, 287);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(75, 13);
+            this.label21.TabIndex = 90;
+            this.label21.Text = "System Rating";
+            // 
+            // enemyTypesTableAdapter1
+            // 
+            this.enemyTypesTableAdapter1.ClearBeforeFill = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.enemyTypeIdDataGridViewTextBoxColumn,
+            this.typeOfMagicUserDataGridViewTextBoxColumn,
+            this.ballisticDataGridViewTextBoxColumn,
+            this.impactDataGridViewTextBoxColumn,
+            this.agilityDataGridViewTextBoxColumn,
+            this.bodyDataGridViewTextBoxColumn,
+            this.reactionDataGridViewTextBoxColumn,
+            this.strengthDataGridViewTextBoxColumn,
+            this.charismaDataGridViewTextBoxColumn,
+            this.intuitionDataGridViewTextBoxColumn,
+            this.logicDataGridViewTextBoxColumn,
+            this.edgeDataGridViewTextBoxColumn,
+            this.essenceDataGridViewTextBoxColumn,
+            this.magicDataGridViewTextBoxColumn,
+            this.resonanceDataGridViewTextBoxColumn,
+            this.willpowerDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.enemyTypesBindingSource1;
+            this.dataGridView1.Location = new System.Drawing.Point(259, 350);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(543, 168);
+            this.dataGridView1.TabIndex = 91;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            // 
+            // enemyTypeIdDataGridViewTextBoxColumn
+            // 
+            this.enemyTypeIdDataGridViewTextBoxColumn.DataPropertyName = "EnemyTypeId";
+            this.enemyTypeIdDataGridViewTextBoxColumn.HeaderText = "EnemyTypeId";
+            this.enemyTypeIdDataGridViewTextBoxColumn.Name = "enemyTypeIdDataGridViewTextBoxColumn";
+            // 
+            // typeOfMagicUserDataGridViewTextBoxColumn
+            // 
+            this.typeOfMagicUserDataGridViewTextBoxColumn.DataPropertyName = "TypeOfMagicUser";
+            this.typeOfMagicUserDataGridViewTextBoxColumn.HeaderText = "TypeOfMagicUser";
+            this.typeOfMagicUserDataGridViewTextBoxColumn.Name = "typeOfMagicUserDataGridViewTextBoxColumn";
+            // 
+            // ballisticDataGridViewTextBoxColumn
+            // 
+            this.ballisticDataGridViewTextBoxColumn.DataPropertyName = "Ballistic";
+            this.ballisticDataGridViewTextBoxColumn.HeaderText = "Ballistic";
+            this.ballisticDataGridViewTextBoxColumn.Name = "ballisticDataGridViewTextBoxColumn";
+            // 
+            // impactDataGridViewTextBoxColumn
+            // 
+            this.impactDataGridViewTextBoxColumn.DataPropertyName = "Impact";
+            this.impactDataGridViewTextBoxColumn.HeaderText = "Impact";
+            this.impactDataGridViewTextBoxColumn.Name = "impactDataGridViewTextBoxColumn";
+            // 
+            // agilityDataGridViewTextBoxColumn
+            // 
+            this.agilityDataGridViewTextBoxColumn.DataPropertyName = "Agility";
+            this.agilityDataGridViewTextBoxColumn.HeaderText = "Agility";
+            this.agilityDataGridViewTextBoxColumn.Name = "agilityDataGridViewTextBoxColumn";
+            // 
+            // bodyDataGridViewTextBoxColumn
+            // 
+            this.bodyDataGridViewTextBoxColumn.DataPropertyName = "Body";
+            this.bodyDataGridViewTextBoxColumn.HeaderText = "Body";
+            this.bodyDataGridViewTextBoxColumn.Name = "bodyDataGridViewTextBoxColumn";
+            // 
+            // reactionDataGridViewTextBoxColumn
+            // 
+            this.reactionDataGridViewTextBoxColumn.DataPropertyName = "Reaction";
+            this.reactionDataGridViewTextBoxColumn.HeaderText = "Reaction";
+            this.reactionDataGridViewTextBoxColumn.Name = "reactionDataGridViewTextBoxColumn";
+            // 
+            // strengthDataGridViewTextBoxColumn
+            // 
+            this.strengthDataGridViewTextBoxColumn.DataPropertyName = "Strength";
+            this.strengthDataGridViewTextBoxColumn.HeaderText = "Strength";
+            this.strengthDataGridViewTextBoxColumn.Name = "strengthDataGridViewTextBoxColumn";
+            // 
+            // charismaDataGridViewTextBoxColumn
+            // 
+            this.charismaDataGridViewTextBoxColumn.DataPropertyName = "Charisma";
+            this.charismaDataGridViewTextBoxColumn.HeaderText = "Charisma";
+            this.charismaDataGridViewTextBoxColumn.Name = "charismaDataGridViewTextBoxColumn";
+            // 
+            // intuitionDataGridViewTextBoxColumn
+            // 
+            this.intuitionDataGridViewTextBoxColumn.DataPropertyName = "Intuition";
+            this.intuitionDataGridViewTextBoxColumn.HeaderText = "Intuition";
+            this.intuitionDataGridViewTextBoxColumn.Name = "intuitionDataGridViewTextBoxColumn";
+            // 
+            // logicDataGridViewTextBoxColumn
+            // 
+            this.logicDataGridViewTextBoxColumn.DataPropertyName = "Logic";
+            this.logicDataGridViewTextBoxColumn.HeaderText = "Logic";
+            this.logicDataGridViewTextBoxColumn.Name = "logicDataGridViewTextBoxColumn";
+            // 
+            // edgeDataGridViewTextBoxColumn
+            // 
+            this.edgeDataGridViewTextBoxColumn.DataPropertyName = "Edge";
+            this.edgeDataGridViewTextBoxColumn.HeaderText = "Edge";
+            this.edgeDataGridViewTextBoxColumn.Name = "edgeDataGridViewTextBoxColumn";
+            // 
+            // essenceDataGridViewTextBoxColumn
+            // 
+            this.essenceDataGridViewTextBoxColumn.DataPropertyName = "Essence";
+            this.essenceDataGridViewTextBoxColumn.HeaderText = "Essence";
+            this.essenceDataGridViewTextBoxColumn.Name = "essenceDataGridViewTextBoxColumn";
+            // 
+            // magicDataGridViewTextBoxColumn
+            // 
+            this.magicDataGridViewTextBoxColumn.DataPropertyName = "Magic";
+            this.magicDataGridViewTextBoxColumn.HeaderText = "Magic";
+            this.magicDataGridViewTextBoxColumn.Name = "magicDataGridViewTextBoxColumn";
+            // 
+            // resonanceDataGridViewTextBoxColumn
+            // 
+            this.resonanceDataGridViewTextBoxColumn.DataPropertyName = "Resonance";
+            this.resonanceDataGridViewTextBoxColumn.HeaderText = "Resonance";
+            this.resonanceDataGridViewTextBoxColumn.Name = "resonanceDataGridViewTextBoxColumn";
+            // 
+            // willpowerDataGridViewTextBoxColumn
+            // 
+            this.willpowerDataGridViewTextBoxColumn.DataPropertyName = "Willpower";
+            this.willpowerDataGridViewTextBoxColumn.HeaderText = "Willpower";
+            this.willpowerDataGridViewTextBoxColumn.Name = "willpowerDataGridViewTextBoxColumn";
+            // 
+            // fKdboRangedWeaponEnemyTypesdboRangedWeaponsRangedWeaponRangedWeaponIdBindingSource
+            // 
+            this.fKdboRangedWeaponEnemyTypesdboRangedWeaponsRangedWeaponRangedWeaponIdBindingSource.DataMember = "FK_dbo.RangedWeaponEnemyTypes_dbo.RangedWeapons_RangedWeapon_RangedWeaponId";
+            this.fKdboRangedWeaponEnemyTypesdboRangedWeaponsRangedWeaponRangedWeaponIdBindingSource.DataSource = this.rangedWeaponsBindingSource;
+            // 
             // fKdboRangedWeaponEnemyTypesdboEnemyTypesEnemyTypeEnemyTypeIdBindingSource
             // 
             this.fKdboRangedWeaponEnemyTypesdboEnemyTypesEnemyTypeEnemyTypeIdBindingSource.DataMember = "FK_dbo.RangedWeaponEnemyTypes_dbo.EnemyTypes_EnemyType_EnemyTypeId";
-            this.fKdboRangedWeaponEnemyTypesdboEnemyTypesEnemyTypeEnemyTypeIdBindingSource.DataSource = this.enemyTypesBindingSource;
+            this.fKdboRangedWeaponEnemyTypesdboEnemyTypesEnemyTypeEnemyTypeIdBindingSource.DataSource = this.enemyTypesBindingSource1;
+            // 
+            // rwLB
+            // 
+            this.rwLB.FormattingEnabled = true;
+            this.rwLB.Location = new System.Drawing.Point(641, 126);
+            this.rwLB.Name = "rwLB";
+            this.rwLB.Size = new System.Drawing.Size(161, 56);
+            this.rwLB.TabIndex = 92;
+            // 
+            // mwLB
+            // 
+            this.mwLB.FormattingEnabled = true;
+            this.mwLB.Location = new System.Drawing.Point(641, 206);
+            this.mwLB.Name = "mwLB";
+            this.mwLB.Size = new System.Drawing.Size(161, 56);
+            this.mwLB.TabIndex = 93;
+            // 
+            // spellLB
+            // 
+            this.spellLB.FormattingEnabled = true;
+            this.spellLB.Location = new System.Drawing.Point(641, 285);
+            this.spellLB.Name = "spellLB";
+            this.spellLB.Size = new System.Drawing.Size(161, 56);
+            this.spellLB.TabIndex = 94;
             // 
             // FormEnemyType
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(877, 450);
+            this.ClientSize = new System.Drawing.Size(821, 628);
+            this.Controls.Add(this.spellLB);
+            this.Controls.Add(this.mwLB);
+            this.Controls.Add(this.rwLB);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.label21);
+            this.Controls.Add(this.sysRatingNB);
             this.Controls.Add(this.addSpellButton);
             this.Controls.Add(this.addMeleeButton);
             this.Controls.Add(this.addRangedButton);
@@ -789,7 +1009,8 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.shadowrun3ContextDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.enemyTypesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.enemyTypesBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shadowrun3ContextDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ballisticNB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.impactNB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edgeNB)).EndInit();
@@ -807,6 +1028,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.rangedWeaponsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spellsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.meleeWeaponsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sysRatingNB)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fKdboRangedWeaponEnemyTypesdboRangedWeaponsRangedWeaponRangedWeaponIdBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fKdboRangedWeaponEnemyTypesdboEnemyTypesEnemyTypeEnemyTypeIdBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -822,7 +1046,6 @@
         private System.Windows.Forms.Button updateButton;
         private System.Windows.Forms.Button rwSubmitButton;
         private Shadowrun3ContextDataSet shadowrun3ContextDataSet;
-        private System.Windows.Forms.BindingSource enemyTypesBindingSource;
         private Shadowrun3ContextDataSetTableAdapters.EnemyTypesTableAdapter enemyTypesTableAdapter;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
@@ -872,6 +1095,32 @@
         private System.Windows.Forms.Button addRangedButton;
         private System.Windows.Forms.Button addMeleeButton;
         private System.Windows.Forms.Button addSpellButton;
+        private System.Windows.Forms.NumericUpDown sysRatingNB;
+        private System.Windows.Forms.Label label21;
+        private Shadowrun3ContextDataSet1 shadowrun3ContextDataSet1;
+        private System.Windows.Forms.BindingSource enemyTypesBindingSource1;
+        private Shadowrun3ContextDataSet1TableAdapters.EnemyTypesTableAdapter enemyTypesTableAdapter1;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn enemyTypeIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn typeOfMagicUserDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ballisticDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn impactDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn agilityDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bodyDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn reactionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn strengthDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn charismaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn intuitionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn logicDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn edgeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn essenceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn magicDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn resonanceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn willpowerDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource fKdboRangedWeaponEnemyTypesdboRangedWeaponsRangedWeaponRangedWeaponIdBindingSource;
         private System.Windows.Forms.BindingSource fKdboRangedWeaponEnemyTypesdboEnemyTypesEnemyTypeEnemyTypeIdBindingSource;
+        private System.Windows.Forms.ListBox rwLB;
+        private System.Windows.Forms.ListBox mwLB;
+        private System.Windows.Forms.ListBox spellLB;
     }
 }

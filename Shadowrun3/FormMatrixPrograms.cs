@@ -22,16 +22,16 @@ namespace Shadowrun3
 
         private void FormMatrixPrograms_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'shadowrun3ContextDataSet.MatrixPrograms' table. You can move, or remove it, as needed.
-            this.matrixProgramsTableAdapter.Fill(this.shadowrun3ContextDataSet.MatrixPrograms);
 
-            // TODO: This line of code loads data into the 'shadowrun3ContextDataSet.Skills' table. You can move, or remove it, as needed.
-            this.skillsTableAdapter.Fill(this.shadowrun3ContextDataSet.Skills);
+            FillSkillsCB();
+
+            // TODO: This line of code loads data into the 'shadowrun3ContextDataSet1.MatrixPrograms' table. You can move, or remove it, as needed.
+            this.matrixProgramsTableAdapter.Fill(this.shadowrun3ContextDataSet1.MatrixPrograms);
 
         }
 
         MatrixProgram newProgram = new MatrixProgram();
-        string newSkillId;
+        string skillString;
 
         private void programNameTB_TextChanged(object sender, EventArgs e)
         {
@@ -41,7 +41,37 @@ namespace Shadowrun3
         private void skillCB_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            newSkillId = skillCB.SelectedValue?.ToString();
+            skillString = skillCB.SelectedValue?.ToString();
+
+        }
+
+        private void FillSkillsCB()
+        {
+
+            using (var ctx = new Shadowrun3Context())
+            {
+                DataSet skillDS = new DataSet();
+
+                DataTable skillDT = new DataTable("sdt");
+                DataColumn skillDC = new DataColumn("Skill", typeof(Skill));
+                skillDT.Columns.Add(skillDC);
+                DataColumn skillIdDC = new DataColumn("SkillId", typeof(string));
+                skillDT.Columns.Add(skillIdDC);
+
+                foreach (Skill skill in ctx.Skills.Where(a => a.SkillGroup.SkillGroupId == "Close Combat" || a.SkillId == "Exotic Melee Weapon"))
+                {
+                    DataRow skillDR = skillDT.NewRow();
+                    skillDR["Skill"] = skill;
+                    skillDR["SkillId"] = skill.SkillId;
+                    skillDT.Rows.Add(skillDR);
+                }
+
+                skillDS.Tables.Add(skillDT);
+
+                skillCB.DataSource = skillDS.Tables["sdt"].DefaultView;
+                skillCB.DisplayMember = "SkillId";
+                skillCB.BindingContext = this.BindingContext;
+            }
 
         }
 
@@ -51,7 +81,7 @@ namespace Shadowrun3
             using (var ctx = new Shadowrun3Context())
             {
 
-                Skill newSkill = ctx.Skills.FirstOrDefault(i => i.SkillId == newSkillId);
+                Skill newSkill = ctx.Skills.FirstOrDefault(i => i.SkillId == skillString);
                 newProgram.skill = newSkill;
 
                 try
@@ -59,9 +89,7 @@ namespace Shadowrun3
                     ctx.MatrixPrograms.Add(newProgram);
                     ctx.SaveChanges();
 
-                    FormMatrixPrograms NewForm = new FormMatrixPrograms();
-                    NewForm.Show();
-                    this.Dispose(false);
+                    ResetForm();
 
                 }
                 catch
@@ -80,9 +108,7 @@ namespace Shadowrun3
                 ctx.MatrixPrograms.Remove(ctx.MatrixPrograms.Single(a => a.MatrixProgramId == programNameTB.Text));
                 ctx.SaveChanges();
 
-                FormMatrixPrograms NewForm = new FormMatrixPrograms();
-                NewForm.Show();
-                this.Dispose(false);
+                ResetForm();
             }
 
         }
@@ -98,9 +124,7 @@ namespace Shadowrun3
                 updatedProg.skill = newSkill;
                 ctx.SaveChanges();
 
-                FormMatrixPrograms NewForm = new FormMatrixPrograms();
-                NewForm.Show();
-                this.Dispose(false);
+                ResetForm();
             }
         }
 
@@ -133,6 +157,13 @@ namespace Shadowrun3
                 deleteButton.Enabled = true;
             }
 
+        }
+
+        private void ResetForm()
+        {
+            FormMatrixPrograms NewForm = new FormMatrixPrograms();
+            NewForm.Show();
+            this.Dispose(false);
         }
     }
 }

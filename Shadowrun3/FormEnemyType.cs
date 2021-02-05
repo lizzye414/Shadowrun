@@ -19,6 +19,8 @@ namespace Shadowrun3
 
         private void FormEnemyType_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'shadowrun3ContextDataSet1.EnemyTypes' table. You can move, or remove it, as needed.
+            this.enemyTypesTableAdapter1.Fill(this.shadowrun3ContextDataSet1.EnemyTypes);
             // TODO: This line of code loads data into the 'shadowrun3ContextDataSet.MeleeWeapons' table. You can move, or remove it, as needed.
             this.meleeWeaponsTableAdapter.Fill(this.shadowrun3ContextDataSet.MeleeWeapons);
             // TODO: This line of code loads data into the 'shadowrun3ContextDataSet.Spells' table. You can move, or remove it, as needed.
@@ -28,94 +30,89 @@ namespace Shadowrun3
 
         }
 
-        EnemyType newEnemy = new EnemyType();
-        string rwString;
-        string mwString;
-        string spellString;
-
         private void nameTB_TextChanged(object sender, EventArgs e)
         {
-            newEnemy.EnemyTypeId = nameTB.Text;
+           
         }
 
         private void mUTypeCB_SelectedIndexChanged(object sender, EventArgs e)
         {
-            newEnemy.TypeOfMagicUser = mUTypeCB.Text;
+           
         }
 
         private void ballisticNB_ValueChanged(object sender, EventArgs e)
         {
-            newEnemy.Ballistic = (int)ballisticNB.Value;
+           
         }
 
         private void impactNB_ValueChanged(object sender, EventArgs e)
         {
-            newEnemy.Impact = (int)impactNB.Value;
+            
         }
 
         private void edgeNB_ValueChanged(object sender, EventArgs e)
         {
-            newEnemy.Edge = (int)edgeNB.Value;
+            
         }
 
         private void essenceNB_ValueChanged(object sender, EventArgs e)
         {
-            newEnemy.Essence = (double)essenceNB.Value;
+           
         }
 
         private void magicNB_ValueChanged(object sender, EventArgs e)
         {
-            newEnemy.Magic = (int)magicNB.Value;
+           
         }
 
         private void resonanceNB_ValueChanged(object sender, EventArgs e)
         {
-            newEnemy.Resonance = (int)resonanceNB.Value;
+           
         }
 
         private void agilityNB_ValueChanged(object sender, EventArgs e)
         {
-            newEnemy.Agility = (int)agilityNB.Value;
+            
         }
 
         private void charismaNB_ValueChanged(object sender, EventArgs e)
         {
-            newEnemy.Charisma = (int)charismaNB.Value;
+           
         }
 
         private void bodyNB_ValueChanged(object sender, EventArgs e)
         {
-            newEnemy.Body = (int)bodyNB.Value;
+            
         }
 
         private void intuitionNB_ValueChanged(object sender, EventArgs e)
         {
-            newEnemy.Intuition = (int)intuitionNB.Value;
+            
         }
 
         private void reactionNB_ValueChanged(object sender, EventArgs e)
         {
-            newEnemy.Reaction = (int)reactionNB.Value;
+            
         }
 
         private void logicNB_ValueChanged(object sender, EventArgs e)
         {
-            newEnemy.Logic = (int)logicNB.Value;
+            
         }
 
         private void strengthNB_ValueChanged(object sender, EventArgs e)
         {
-            newEnemy.Strength = (int)strengthNB.Value;
+            
         }
 
         private void willpowerNB_ValueChanged(object sender, EventArgs e)
         {
-            newEnemy.Willpower = (int)willpowerNB.Value;
+            
         }
 
         private void addRangedButton_Click(object sender, EventArgs e)
         {
-            rwString = rwAddCB.SelectedValue.ToString();
+            string rwString = rwAddCB.SelectedValue.ToString();
 
             using(var ctx = new Shadowrun3Context())
             {
@@ -126,9 +123,7 @@ namespace Shadowrun3
 
                 ctx.SaveChanges();
 
-                FormEnemyType NewForm = new FormEnemyType();
-                NewForm.Show();
-                this.Dispose(false);
+                ResetForm();
 
             }
 
@@ -136,7 +131,7 @@ namespace Shadowrun3
 
         private void addMeleeButton_Click(object sender, EventArgs e)
         {
-            mwString = mwAddCB.SelectedValue.ToString();
+            string mwString = mwAddCB.SelectedValue.ToString();
 
             using (var ctx = new Shadowrun3Context())
             {
@@ -147,16 +142,14 @@ namespace Shadowrun3
 
                 ctx.SaveChanges();
 
-                FormEnemyType NewForm = new FormEnemyType();
-                NewForm.Show();
-                this.Dispose(false);
+                ResetForm();
 
             }
         }
 
         private void addSpellButton_Click(object sender, EventArgs e)
         {
-            spellString = spellAddCB.SelectedValue.ToString();
+            string spellString = spellAddCB.SelectedValue.ToString();
 
             using (var ctx = new Shadowrun3Context())
             {
@@ -167,9 +160,7 @@ namespace Shadowrun3
 
                 ctx.SaveChanges();
 
-                FormEnemyType NewForm = new FormEnemyType();
-                NewForm.Show();
-                this.Dispose(false);
+                ResetForm();
 
             }
         }
@@ -181,12 +172,14 @@ namespace Shadowrun3
 
                 try
                 {
-                    ctx.EnemyTypes.Add(newEnemy);
+                    EnemyType et = new EnemyType();
+                    et.EnemyTypeId = nameTB.Text;
+                    et = SetVar(et);
+                    
+                    ctx.EnemyTypes.Add(et);
                     ctx.SaveChanges();
 
-                    FormEnemyType NewForm = new FormEnemyType();
-                    NewForm.Show();
-                    this.Dispose(false);
+                    ResetForm();
 
                 }
                 catch
@@ -201,27 +194,10 @@ namespace Shadowrun3
             using (var ctx = new Shadowrun3Context())
             {
 
-                EnemyType updatedET = ctx.EnemyTypes.First(a => a.EnemyTypeId == nameTB.Text);
-                updatedET.TypeOfMagicUser = mUTypeCB.Text;
-                updatedET.Ballistic = (int)ballisticNB.Value;
-                updatedET.Impact = (int)impactNB.Value;
-                updatedET.Edge = (int)edgeNB.Value;
-                updatedET.Essence = (double)essenceNB.Value;
-                updatedET.Magic = (int)magicNB.Value;
-                updatedET.Resonance = (int)resonanceNB.Value;
-                updatedET.Agility = (int)agilityNB.Value;
-                updatedET.Charisma = (int)charismaNB.Value;
-                updatedET.Body = (int)bodyNB.Value;
-                updatedET.Intuition = (int)intuitionNB.Value;
-                updatedET.Reaction = (int)reactionNB.Value;
-                updatedET.Logic = (int)logicNB.Value;
-                updatedET.Strength = (int)strengthNB.Value;
-                updatedET.Willpower = (int)willpowerNB.Value;
+                EnemyType et = ctx.EnemyTypes.First(a => a.EnemyTypeId == nameTB.Text);
+                et = SetVar(et); 
                 ctx.SaveChanges();
-
-                FormEnemyType NewForm = new FormEnemyType();
-                NewForm.Show();
-                this.Dispose(false);
+                ResetForm();
             }
         }
 
@@ -233,9 +209,7 @@ namespace Shadowrun3
                 ctx.EnemyTypes.Remove(ctx.EnemyTypes.Single(a => a.EnemyTypeId == nameTB.Text));
                 ctx.SaveChanges();
 
-                FormEnemyType NewForm = new FormEnemyType();
-                NewForm.Show();
-                this.Dispose(false);
+                ResetForm();
             }
         }
 
@@ -265,6 +239,115 @@ namespace Shadowrun3
                 addMeleeButton.Enabled = true;
                 addSpellButton.Enabled = true;
             }
+        }
+
+        private void ResetForm()
+        {
+            FormEnemyType NewForm = new FormEnemyType();
+            NewForm.Show();
+            this.Dispose(false);
+        }
+
+        private EnemyType SetVar(EnemyType et)
+        {
+            et.TypeOfMagicUser = mUTypeCB.Text;
+            et.Ballistic = (int)ballisticNB.Value;
+            et.Impact = (int)impactNB.Value;
+            et.Edge = (int)edgeNB.Value;
+            et.Essence = (double)essenceNB.Value;
+            et.Magic = (int)magicNB.Value;
+            et.Resonance = (int)resonanceNB.Value;
+            et.Agility = (int)agilityNB.Value;
+            et.Charisma = (int)charismaNB.Value;
+            et.Body = (int)bodyNB.Value;
+            et.Intuition = (int)intuitionNB.Value;
+            et.Reaction = (int)reactionNB.Value;
+            et.Logic = (int)logicNB.Value;
+            et.Strength = (int)strengthNB.Value;
+            et.Willpower = (int)willpowerNB.Value;
+            et.SystemRating = (int)sysRatingNB.Value;
+            return et;
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewRow et = dataGridView1.CurrentRow;
+            string etString = et.Cells[0].Value.ToString();
+
+            //MessageBox.Show(et.Cells[0].Value.ToString());
+            
+            DisplayRW(etString);
+            DisplayMW(etString);
+            DisplaySpells(etString);
+        }
+
+        private void DisplayRW(string et)
+        {
+            using (var ctx = new Shadowrun3Context())
+            {
+               
+                List<string> rwList = new List<string>();
+
+                foreach(EnemyType etRW in ctx.EnemyTypes.Where(a => a.EnemyTypeId == et))
+                {
+                    
+                    foreach(RangedWeapon rw in etRW.RangedWeapons)
+                    {
+                        rwList.Add(rw.RangedWeaponId);
+                    }
+                    
+                }
+
+                rwLB.DataSource = rwList;
+
+            }
+
+        }
+
+        private void DisplayMW(string et)
+        {
+            using (var ctx = new Shadowrun3Context())
+            {
+                
+                List<string> mwList = new List<string>();
+
+                foreach (EnemyType etMW in ctx.EnemyTypes.Where(a => a.EnemyTypeId == et))
+                {
+
+                    foreach (MeleeWeapon mw in etMW.MeleeWeapons)
+                    {
+                        mwList.Add(mw.MeleeWeaponId);
+                    }
+
+                }
+
+                mwLB.DataSource = mwList;
+
+            }
+
+        }
+
+        private void DisplaySpells(string et)
+        {
+            using (var ctx = new Shadowrun3Context())
+            {
+
+                List<string> spellList = new List<string>();
+
+                foreach (EnemyType etSpell in ctx.EnemyTypes.Where(a => a.EnemyTypeId == et))
+                {
+
+                    foreach (Spell spell in etSpell.Spells)
+                    {
+                        spellList.Add(spell.SpellId);
+                    }
+
+                }
+
+                spellLB.DataSource = spellList;
+
+            }
+
         }
 
     }

@@ -35,35 +35,36 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.mwIdTB = new System.Windows.Forms.TextBox();
-            this.meleeWeaponsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.shadowrun3ContextDataSet = new Shadowrun3.Shadowrun3ContextDataSet();
+            this.nameTB = new System.Windows.Forms.TextBox();
             this.damAmtNB = new System.Windows.Forms.NumericUpDown();
             this.damTypeCB = new System.Windows.Forms.ComboBox();
             this.reachNB = new System.Windows.Forms.NumericUpDown();
             this.apNB = new System.Windows.Forms.NumericUpDown();
-            this.mwSubmitButton = new System.Windows.Forms.Button();
+            this.submitButton = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.mwSkillCB = new System.Windows.Forms.ComboBox();
-            this.meleeWeaponsTableAdapter = new Shadowrun3.Shadowrun3ContextDataSetTableAdapters.MeleeWeaponsTableAdapter();
             this.panel1 = new System.Windows.Forms.Panel();
             this.updateRB = new System.Windows.Forms.RadioButton();
             this.newRB = new System.Windows.Forms.RadioButton();
-            this.deleteButton = new System.Windows.Forms.Button();
             this.updateButton = new System.Windows.Forms.Button();
+            this.deleteButton = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.shadowrun3ContextDataSet1 = new Shadowrun3.Shadowrun3ContextDataSet1();
+            this.meleeWeaponsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.meleeWeaponsTableAdapter = new Shadowrun3.Shadowrun3ContextDataSet1TableAdapters.MeleeWeaponsTableAdapter();
             this.meleeWeaponIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.damageAmountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.reachDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.typeOfDamageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.aPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.meleeWeaponsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.shadowrun3ContextDataSet)).BeginInit();
+            this.skillSkillIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.damAmtNB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reachNB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.apNB)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shadowrun3ContextDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.meleeWeaponsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -121,24 +122,14 @@
             this.label6.TabIndex = 27;
             this.label6.Text = "AP";
             // 
-            // mwIdTB
+            // nameTB
             // 
-            this.mwIdTB.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.meleeWeaponsBindingSource, "MeleeWeaponId", true));
-            this.mwIdTB.Location = new System.Drawing.Point(165, 129);
-            this.mwIdTB.Name = "mwIdTB";
-            this.mwIdTB.Size = new System.Drawing.Size(120, 20);
-            this.mwIdTB.TabIndex = 28;
-            this.mwIdTB.TextChanged += new System.EventHandler(this.mwIdTB_TextChanged);
-            // 
-            // meleeWeaponsBindingSource
-            // 
-            this.meleeWeaponsBindingSource.DataMember = "MeleeWeapons";
-            this.meleeWeaponsBindingSource.DataSource = this.shadowrun3ContextDataSet;
-            // 
-            // shadowrun3ContextDataSet
-            // 
-            this.shadowrun3ContextDataSet.DataSetName = "Shadowrun3ContextDataSet";
-            this.shadowrun3ContextDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.nameTB.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.meleeWeaponsBindingSource, "MeleeWeaponId", true));
+            this.nameTB.Location = new System.Drawing.Point(165, 129);
+            this.nameTB.Name = "nameTB";
+            this.nameTB.Size = new System.Drawing.Size(120, 20);
+            this.nameTB.TabIndex = 28;
+            this.nameTB.TextChanged += new System.EventHandler(this.mwIdTB_TextChanged);
             // 
             // damAmtNB
             // 
@@ -205,16 +196,16 @@
             this.apNB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.apNB.ValueChanged += new System.EventHandler(this.apNB_ValueChanged);
             // 
-            // mwSubmitButton
+            // submitButton
             // 
-            this.mwSubmitButton.Enabled = false;
-            this.mwSubmitButton.Location = new System.Drawing.Point(188, 335);
-            this.mwSubmitButton.Name = "mwSubmitButton";
-            this.mwSubmitButton.Size = new System.Drawing.Size(75, 23);
-            this.mwSubmitButton.TabIndex = 33;
-            this.mwSubmitButton.Text = "Submit";
-            this.mwSubmitButton.UseVisualStyleBackColor = true;
-            this.mwSubmitButton.Click += new System.EventHandler(this.mwSubmitButton_Click);
+            this.submitButton.Enabled = false;
+            this.submitButton.Location = new System.Drawing.Point(188, 335);
+            this.submitButton.Name = "submitButton";
+            this.submitButton.Size = new System.Drawing.Size(75, 23);
+            this.submitButton.TabIndex = 33;
+            this.submitButton.Text = "Submit";
+            this.submitButton.UseVisualStyleBackColor = true;
+            this.submitButton.Click += new System.EventHandler(this.mwSubmitButton_Click);
             // 
             // label7
             // 
@@ -227,6 +218,7 @@
             // 
             // mwSkillCB
             // 
+            this.mwSkillCB.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.meleeWeaponsBindingSource, "skill_SkillId", true));
             this.mwSkillCB.FormattingEnabled = true;
             this.mwSkillCB.Items.AddRange(new object[] {
             "Blades",
@@ -238,10 +230,6 @@
             this.mwSkillCB.Size = new System.Drawing.Size(121, 21);
             this.mwSkillCB.TabIndex = 35;
             this.mwSkillCB.SelectedIndexChanged += new System.EventHandler(this.mwSkillCB_SelectedIndexChanged);
-            // 
-            // meleeWeaponsTableAdapter
-            // 
-            this.meleeWeaponsTableAdapter.ClearBeforeFill = true;
             // 
             // panel1
             // 
@@ -274,17 +262,6 @@
             this.newRB.UseVisualStyleBackColor = true;
             this.newRB.CheckedChanged += new System.EventHandler(this.newRB_CheckedChanged);
             // 
-            // deleteButton
-            // 
-            this.deleteButton.Enabled = false;
-            this.deleteButton.Location = new System.Drawing.Point(188, 394);
-            this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(75, 23);
-            this.deleteButton.TabIndex = 39;
-            this.deleteButton.Text = "Delete";
-            this.deleteButton.UseVisualStyleBackColor = true;
-            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
-            // 
             // updateButton
             // 
             this.updateButton.Enabled = false;
@@ -296,6 +273,17 @@
             this.updateButton.UseVisualStyleBackColor = true;
             this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
             // 
+            // deleteButton
+            // 
+            this.deleteButton.Enabled = false;
+            this.deleteButton.Location = new System.Drawing.Point(188, 394);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(75, 23);
+            this.deleteButton.TabIndex = 39;
+            this.deleteButton.Text = "Delete";
+            this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
+            // 
             // dataGridView1
             // 
             this.dataGridView1.AutoGenerateColumns = false;
@@ -305,24 +293,38 @@
             this.damageAmountDataGridViewTextBoxColumn,
             this.reachDataGridViewTextBoxColumn,
             this.typeOfDamageDataGridViewTextBoxColumn,
-            this.aPDataGridViewTextBoxColumn});
+            this.aPDataGridViewTextBoxColumn,
+            this.skillSkillIdDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.meleeWeaponsBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(341, 129);
+            this.dataGridView1.Location = new System.Drawing.Point(329, 129);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(544, 288);
+            this.dataGridView1.Size = new System.Drawing.Size(644, 288);
             this.dataGridView1.TabIndex = 40;
+            // 
+            // shadowrun3ContextDataSet1
+            // 
+            this.shadowrun3ContextDataSet1.DataSetName = "Shadowrun3ContextDataSet1";
+            this.shadowrun3ContextDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // meleeWeaponsBindingSource
+            // 
+            this.meleeWeaponsBindingSource.DataMember = "MeleeWeapons";
+            this.meleeWeaponsBindingSource.DataSource = this.shadowrun3ContextDataSet1;
+            // 
+            // meleeWeaponsTableAdapter
+            // 
+            this.meleeWeaponsTableAdapter.ClearBeforeFill = true;
             // 
             // meleeWeaponIdDataGridViewTextBoxColumn
             // 
             this.meleeWeaponIdDataGridViewTextBoxColumn.DataPropertyName = "MeleeWeaponId";
-            this.meleeWeaponIdDataGridViewTextBoxColumn.HeaderText = "MeleeWeaponId";
+            this.meleeWeaponIdDataGridViewTextBoxColumn.HeaderText = "Melee Weapon";
             this.meleeWeaponIdDataGridViewTextBoxColumn.Name = "meleeWeaponIdDataGridViewTextBoxColumn";
             // 
             // damageAmountDataGridViewTextBoxColumn
             // 
             this.damageAmountDataGridViewTextBoxColumn.DataPropertyName = "DamageAmount";
-            this.damageAmountDataGridViewTextBoxColumn.HeaderText = "DamageAmount";
+            this.damageAmountDataGridViewTextBoxColumn.HeaderText = "Damage Amount";
             this.damageAmountDataGridViewTextBoxColumn.Name = "damageAmountDataGridViewTextBoxColumn";
             // 
             // reachDataGridViewTextBoxColumn
@@ -334,7 +336,7 @@
             // typeOfDamageDataGridViewTextBoxColumn
             // 
             this.typeOfDamageDataGridViewTextBoxColumn.DataPropertyName = "TypeOfDamage";
-            this.typeOfDamageDataGridViewTextBoxColumn.HeaderText = "TypeOfDamage";
+            this.typeOfDamageDataGridViewTextBoxColumn.HeaderText = "Type Of Damage";
             this.typeOfDamageDataGridViewTextBoxColumn.Name = "typeOfDamageDataGridViewTextBoxColumn";
             // 
             // aPDataGridViewTextBoxColumn
@@ -343,23 +345,29 @@
             this.aPDataGridViewTextBoxColumn.HeaderText = "AP";
             this.aPDataGridViewTextBoxColumn.Name = "aPDataGridViewTextBoxColumn";
             // 
+            // skillSkillIdDataGridViewTextBoxColumn
+            // 
+            this.skillSkillIdDataGridViewTextBoxColumn.DataPropertyName = "skill_SkillId";
+            this.skillSkillIdDataGridViewTextBoxColumn.HeaderText = "Skill";
+            this.skillSkillIdDataGridViewTextBoxColumn.Name = "skillSkillIdDataGridViewTextBoxColumn";
+            // 
             // FormMeleeWeapon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(913, 450);
+            this.ClientSize = new System.Drawing.Size(996, 450);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.updateButton);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.mwSkillCB);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.mwSubmitButton);
+            this.Controls.Add(this.submitButton);
             this.Controls.Add(this.apNB);
             this.Controls.Add(this.reachNB);
             this.Controls.Add(this.damTypeCB);
             this.Controls.Add(this.damAmtNB);
-            this.Controls.Add(this.mwIdTB);
+            this.Controls.Add(this.nameTB);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -369,14 +377,14 @@
             this.Name = "FormMeleeWeapon";
             this.Text = "FormMeleeWeapon";
             this.Load += new System.EventHandler(this.FormMeleeWeapon_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.meleeWeaponsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.shadowrun3ContextDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.damAmtNB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.reachNB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.apNB)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shadowrun3ContextDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.meleeWeaponsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -390,27 +398,28 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox mwIdTB;
+        private System.Windows.Forms.TextBox nameTB;
         private System.Windows.Forms.NumericUpDown damAmtNB;
         private System.Windows.Forms.ComboBox damTypeCB;
         private System.Windows.Forms.NumericUpDown reachNB;
         private System.Windows.Forms.NumericUpDown apNB;
-        private System.Windows.Forms.Button mwSubmitButton;
+        private System.Windows.Forms.Button submitButton;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox mwSkillCB;
-        private Shadowrun3ContextDataSet shadowrun3ContextDataSet;
-        private System.Windows.Forms.BindingSource meleeWeaponsBindingSource;
-        private Shadowrun3ContextDataSetTableAdapters.MeleeWeaponsTableAdapter meleeWeaponsTableAdapter;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.RadioButton updateRB;
         private System.Windows.Forms.RadioButton newRB;
-        private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.Button updateButton;
+        private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private Shadowrun3ContextDataSet1 shadowrun3ContextDataSet1;
+        private System.Windows.Forms.BindingSource meleeWeaponsBindingSource;
+        private Shadowrun3ContextDataSet1TableAdapters.MeleeWeaponsTableAdapter meleeWeaponsTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn meleeWeaponIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn damageAmountDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn reachDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn typeOfDamageDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn aPDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn skillSkillIdDataGridViewTextBoxColumn;
     }
 }

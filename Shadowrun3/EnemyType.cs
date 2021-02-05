@@ -32,6 +32,7 @@ namespace Shadowrun3
 		public int Magic { get; set; }
 		public int Resonance { get; set; }
 		public int Willpower { get; set; } 
+		public int SystemRating { get; set; }
 
 		public virtual ICollection<Spell> Spells { get; set; }
 		public virtual ICollection<RangedWeapon> RangedWeapons { get; set; }
