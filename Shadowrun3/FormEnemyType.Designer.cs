@@ -115,6 +115,28 @@
             this.remRangedButton = new System.Windows.Forms.Button();
             this.remMeleeButton = new System.Windows.Forms.Button();
             this.remSpellButton = new System.Windows.Forms.Button();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.skillGroupCB = new System.Windows.Forms.ComboBox();
+            this.skillGroupsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.skillCB = new System.Windows.Forms.ComboBox();
+            this.skillsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.enemySkillGroupsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.enemySkillGroupsTableAdapter = new Shadowrun3.Shadowrun3ContextDataSet1TableAdapters.EnemySkillGroupsTableAdapter();
+            this.skillGroupsTableAdapter = new Shadowrun3.Shadowrun3ContextDataSet1TableAdapters.SkillGroupsTableAdapter();
+            this.skillsTableAdapter = new Shadowrun3.Shadowrun3ContextDataSet1TableAdapters.SkillsTableAdapter();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.skillGroupRankNB = new System.Windows.Forms.NumericUpDown();
+            this.skillRankNB = new System.Windows.Forms.NumericUpDown();
+            this.addSGButton = new System.Windows.Forms.Button();
+            this.removeSButton = new System.Windows.Forms.Button();
+            this.updateSButton = new System.Windows.Forms.Button();
+            this.addSButton = new System.Windows.Forms.Button();
+            this.removeSGButton = new System.Windows.Forms.Button();
+            this.updateSGButton = new System.Windows.Forms.Button();
+            this.sgDGV = new System.Windows.Forms.DataGridView();
+            this.sDGV = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.shadowrun3ContextDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.enemyTypesBindingSource1)).BeginInit();
@@ -140,6 +162,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fKdboRangedWeaponEnemyTypesdboRangedWeaponsRangedWeaponRangedWeaponIdBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fKdboRangedWeaponEnemyTypesdboEnemyTypesEnemyTypeEnemyTypeIdBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.skillGroupsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.skillsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.enemySkillGroupsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.skillGroupRankNB)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.skillRankNB)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sgDGV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sDGV)).BeginInit();
             this.SuspendLayout();
             // 
             // deleteButton
@@ -219,7 +248,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(249, 9);
+            this.label2.Location = new System.Drawing.Point(382, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(318, 55);
             this.label2.TabIndex = 47;
@@ -815,7 +844,7 @@
             this.dataGridView1.DataSource = this.enemyTypesBindingSource1;
             this.dataGridView1.Location = new System.Drawing.Point(259, 350);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(543, 168);
+            this.dataGridView1.Size = new System.Drawing.Size(543, 138);
             this.dataGridView1.TabIndex = 91;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -982,11 +1011,239 @@
             this.remSpellButton.UseVisualStyleBackColor = true;
             this.remSpellButton.Click += new System.EventHandler(this.remSpellButton_Click);
             // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(815, 112);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(63, 13);
+            this.label22.TabIndex = 98;
+            this.label22.Text = "Skill Groups";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(815, 304);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(31, 13);
+            this.label23.TabIndex = 99;
+            this.label23.Text = "Skills";
+            // 
+            // skillGroupCB
+            // 
+            this.skillGroupCB.DataSource = this.skillGroupsBindingSource;
+            this.skillGroupCB.DisplayMember = "SkillGroupId";
+            this.skillGroupCB.FormattingEnabled = true;
+            this.skillGroupCB.Location = new System.Drawing.Point(818, 127);
+            this.skillGroupCB.Name = "skillGroupCB";
+            this.skillGroupCB.Size = new System.Drawing.Size(160, 21);
+            this.skillGroupCB.TabIndex = 100;
+            this.skillGroupCB.ValueMember = "SkillGroupId";
+            // 
+            // skillGroupsBindingSource
+            // 
+            this.skillGroupsBindingSource.DataMember = "SkillGroups";
+            this.skillGroupsBindingSource.DataSource = this.shadowrun3ContextDataSet1;
+            // 
+            // skillCB
+            // 
+            this.skillCB.DataSource = this.skillsBindingSource;
+            this.skillCB.DisplayMember = "SkillId";
+            this.skillCB.FormattingEnabled = true;
+            this.skillCB.Location = new System.Drawing.Point(818, 320);
+            this.skillCB.Name = "skillCB";
+            this.skillCB.Size = new System.Drawing.Size(160, 21);
+            this.skillCB.TabIndex = 101;
+            this.skillCB.ValueMember = "SkillId";
+            // 
+            // skillsBindingSource
+            // 
+            this.skillsBindingSource.DataMember = "Skills";
+            this.skillsBindingSource.DataSource = this.shadowrun3ContextDataSet1;
+            // 
+            // enemySkillGroupsBindingSource
+            // 
+            this.enemySkillGroupsBindingSource.DataMember = "EnemySkillGroups";
+            this.enemySkillGroupsBindingSource.DataSource = this.shadowrun3ContextDataSet1;
+            // 
+            // enemySkillGroupsTableAdapter
+            // 
+            this.enemySkillGroupsTableAdapter.ClearBeforeFill = true;
+            // 
+            // skillGroupsTableAdapter
+            // 
+            this.skillGroupsTableAdapter.ClearBeforeFill = true;
+            // 
+            // skillsTableAdapter
+            // 
+            this.skillsTableAdapter.ClearBeforeFill = true;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(983, 112);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(33, 13);
+            this.label24.TabIndex = 102;
+            this.label24.Text = "Rank";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(984, 304);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(33, 13);
+            this.label25.TabIndex = 103;
+            this.label25.Text = "Rank";
+            // 
+            // skillGroupRankNB
+            // 
+            this.skillGroupRankNB.Location = new System.Drawing.Point(987, 128);
+            this.skillGroupRankNB.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.skillGroupRankNB.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.skillGroupRankNB.Name = "skillGroupRankNB";
+            this.skillGroupRankNB.Size = new System.Drawing.Size(75, 20);
+            this.skillGroupRankNB.TabIndex = 104;
+            this.skillGroupRankNB.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // skillRankNB
+            // 
+            this.skillRankNB.Location = new System.Drawing.Point(986, 320);
+            this.skillRankNB.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.skillRankNB.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.skillRankNB.Name = "skillRankNB";
+            this.skillRankNB.Size = new System.Drawing.Size(76, 20);
+            this.skillRankNB.TabIndex = 105;
+            this.skillRankNB.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // addSGButton
+            // 
+            this.addSGButton.Enabled = false;
+            this.addSGButton.Location = new System.Drawing.Point(818, 152);
+            this.addSGButton.Name = "addSGButton";
+            this.addSGButton.Size = new System.Drawing.Size(75, 23);
+            this.addSGButton.TabIndex = 106;
+            this.addSGButton.Text = "Add";
+            this.addSGButton.UseVisualStyleBackColor = true;
+            this.addSGButton.Click += new System.EventHandler(this.addSGButton_Click);
+            // 
+            // removeSButton
+            // 
+            this.removeSButton.Enabled = false;
+            this.removeSButton.Location = new System.Drawing.Point(987, 345);
+            this.removeSButton.Name = "removeSButton";
+            this.removeSButton.Size = new System.Drawing.Size(75, 23);
+            this.removeSButton.TabIndex = 107;
+            this.removeSButton.Text = "Remove";
+            this.removeSButton.UseVisualStyleBackColor = true;
+            this.removeSButton.Click += new System.EventHandler(this.removeSButton_Click);
+            // 
+            // updateSButton
+            // 
+            this.updateSButton.Enabled = false;
+            this.updateSButton.Location = new System.Drawing.Point(903, 345);
+            this.updateSButton.Name = "updateSButton";
+            this.updateSButton.Size = new System.Drawing.Size(75, 23);
+            this.updateSButton.TabIndex = 108;
+            this.updateSButton.Text = "Update";
+            this.updateSButton.UseVisualStyleBackColor = true;
+            this.updateSButton.Click += new System.EventHandler(this.updateSButton_Click);
+            // 
+            // addSButton
+            // 
+            this.addSButton.Enabled = false;
+            this.addSButton.Location = new System.Drawing.Point(818, 345);
+            this.addSButton.Name = "addSButton";
+            this.addSButton.Size = new System.Drawing.Size(75, 23);
+            this.addSButton.TabIndex = 109;
+            this.addSButton.Text = "Add";
+            this.addSButton.UseVisualStyleBackColor = true;
+            this.addSButton.Click += new System.EventHandler(this.addSButton_Click);
+            // 
+            // removeSGButton
+            // 
+            this.removeSGButton.Enabled = false;
+            this.removeSGButton.Location = new System.Drawing.Point(986, 150);
+            this.removeSGButton.Name = "removeSGButton";
+            this.removeSGButton.Size = new System.Drawing.Size(76, 23);
+            this.removeSGButton.TabIndex = 110;
+            this.removeSGButton.Text = "Remove";
+            this.removeSGButton.UseVisualStyleBackColor = true;
+            this.removeSGButton.Click += new System.EventHandler(this.removeSGButton_Click);
+            // 
+            // updateSGButton
+            // 
+            this.updateSGButton.Enabled = false;
+            this.updateSGButton.Location = new System.Drawing.Point(903, 152);
+            this.updateSGButton.Name = "updateSGButton";
+            this.updateSGButton.Size = new System.Drawing.Size(75, 23);
+            this.updateSGButton.TabIndex = 111;
+            this.updateSGButton.Text = "Update";
+            this.updateSGButton.UseVisualStyleBackColor = true;
+            this.updateSGButton.Click += new System.EventHandler(this.updateSGButton_Click);
+            // 
+            // sgDGV
+            // 
+            this.sgDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.sgDGV.Location = new System.Drawing.Point(818, 178);
+            this.sgDGV.Name = "sgDGV";
+            this.sgDGV.Size = new System.Drawing.Size(244, 109);
+            this.sgDGV.TabIndex = 112;
+            this.sgDGV.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.sgDGV_CellClick);
+            // 
+            // sDGV
+            // 
+            this.sDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.sDGV.Location = new System.Drawing.Point(818, 371);
+            this.sDGV.Name = "sDGV";
+            this.sDGV.Size = new System.Drawing.Size(244, 117);
+            this.sDGV.TabIndex = 113;
+            // 
             // FormEnemyType
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(821, 628);
+            this.ClientSize = new System.Drawing.Size(1082, 628);
+            this.Controls.Add(this.sDGV);
+            this.Controls.Add(this.sgDGV);
+            this.Controls.Add(this.updateSGButton);
+            this.Controls.Add(this.removeSGButton);
+            this.Controls.Add(this.addSButton);
+            this.Controls.Add(this.updateSButton);
+            this.Controls.Add(this.removeSButton);
+            this.Controls.Add(this.addSGButton);
+            this.Controls.Add(this.skillRankNB);
+            this.Controls.Add(this.skillGroupRankNB);
+            this.Controls.Add(this.label25);
+            this.Controls.Add(this.label24);
+            this.Controls.Add(this.skillCB);
+            this.Controls.Add(this.skillGroupCB);
+            this.Controls.Add(this.label23);
+            this.Controls.Add(this.label22);
             this.Controls.Add(this.remSpellButton);
             this.Controls.Add(this.remMeleeButton);
             this.Controls.Add(this.remRangedButton);
@@ -1071,6 +1328,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fKdboRangedWeaponEnemyTypesdboRangedWeaponsRangedWeaponRangedWeaponIdBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fKdboRangedWeaponEnemyTypesdboEnemyTypesEnemyTypeEnemyTypeIdBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.skillGroupsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.skillsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.enemySkillGroupsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.skillGroupRankNB)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.skillRankNB)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sgDGV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sDGV)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1164,5 +1428,27 @@
         private System.Windows.Forms.Button remRangedButton;
         private System.Windows.Forms.Button remMeleeButton;
         private System.Windows.Forms.Button remSpellButton;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.ComboBox skillGroupCB;
+        private System.Windows.Forms.ComboBox skillCB;
+        private System.Windows.Forms.BindingSource enemySkillGroupsBindingSource;
+        private Shadowrun3ContextDataSet1TableAdapters.EnemySkillGroupsTableAdapter enemySkillGroupsTableAdapter;
+        private System.Windows.Forms.BindingSource skillGroupsBindingSource;
+        private Shadowrun3ContextDataSet1TableAdapters.SkillGroupsTableAdapter skillGroupsTableAdapter;
+        private System.Windows.Forms.BindingSource skillsBindingSource;
+        private Shadowrun3ContextDataSet1TableAdapters.SkillsTableAdapter skillsTableAdapter;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.NumericUpDown skillGroupRankNB;
+        private System.Windows.Forms.NumericUpDown skillRankNB;
+        private System.Windows.Forms.Button addSGButton;
+        private System.Windows.Forms.Button removeSButton;
+        private System.Windows.Forms.Button updateSButton;
+        private System.Windows.Forms.Button addSButton;
+        private System.Windows.Forms.Button removeSGButton;
+        private System.Windows.Forms.Button updateSGButton;
+        private System.Windows.Forms.DataGridView sgDGV;
+        private System.Windows.Forms.DataGridView sDGV;
     }
 }

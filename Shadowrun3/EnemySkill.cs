@@ -11,8 +11,8 @@ namespace Shadowrun3
         public int EnemySkillId { get; set; }
         public int EnemySkillRank { get; set; }
 
-        public Skill Skill { get; set; }
-        public EnemyType EnemyType { get; set; }
+        public virtual Skill Skill { get; set; }
+        public virtual EnemyType EnemyType { get; set; }
 
     }
 }

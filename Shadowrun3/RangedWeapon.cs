@@ -22,7 +22,7 @@ namespace Shadowrun3
 		public string AmmoType { get; set; }
 		public int AP { get; set; }
 
-		public Skill skill { get; set; }
+		public virtual Skill skill { get; set; }
 
 		public virtual ICollection<EnemyType> EnemyTypes { get; set; }
 

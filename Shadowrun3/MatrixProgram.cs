@@ -10,7 +10,7 @@ namespace Shadowrun3
     {
         public string MatrixProgramId { get; set; }
 
-        public Skill skill { get; set; }
+        public virtual Skill skill { get; set; }
 
     }
 }

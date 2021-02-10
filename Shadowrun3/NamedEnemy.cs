@@ -19,8 +19,8 @@ namespace Shadowrun3
         public int CommRating { get; set; }
 
         //Foreign keys
-        public EnemyType EnemyType { get; set; }
-        public Encounter Encounter { get; set; }
+        public virtual EnemyType EnemyType { get; set; }
+        public virtual Encounter Encounter { get; set; }
 
     }
 
