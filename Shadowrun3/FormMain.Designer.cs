@@ -116,6 +116,7 @@
             this.runEncounterButton.TabIndex = 7;
             this.runEncounterButton.Text = "Run an Encounter";
             this.runEncounterButton.UseVisualStyleBackColor = true;
+            this.runEncounterButton.Click += new System.EventHandler(this.runEncounterButton_Click);
             // 
             // FormMain
             // 

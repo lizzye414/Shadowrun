@@ -55,7 +55,7 @@
             // programName
             // 
             this.programName.AutoSize = true;
-            this.programName.Location = new System.Drawing.Point(115, 114);
+            this.programName.Location = new System.Drawing.Point(76, 119);
             this.programName.Name = "programName";
             this.programName.Size = new System.Drawing.Size(35, 13);
             this.programName.TabIndex = 0;
@@ -64,7 +64,7 @@
             // programNameTB
             // 
             this.programNameTB.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.matrixProgramsBindingSource, "MatrixProgramId", true));
-            this.programNameTB.Location = new System.Drawing.Point(173, 114);
+            this.programNameTB.Location = new System.Drawing.Point(117, 116);
             this.programNameTB.Name = "programNameTB";
             this.programNameTB.Size = new System.Drawing.Size(162, 20);
             this.programNameTB.TabIndex = 1;
@@ -83,7 +83,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(69, 180);
+            this.label1.Location = new System.Drawing.Point(30, 185);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(81, 13);
             this.label1.TabIndex = 2;
@@ -93,7 +93,7 @@
             // 
             this.skillCB.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.matrixProgramsBindingSource, "skill_SkillId", true));
             this.skillCB.FormattingEnabled = true;
-            this.skillCB.Location = new System.Drawing.Point(173, 180);
+            this.skillCB.Location = new System.Drawing.Point(117, 182);
             this.skillCB.Name = "skillCB";
             this.skillCB.Size = new System.Drawing.Size(162, 21);
             this.skillCB.TabIndex = 3;
@@ -102,7 +102,7 @@
             // programSubmitButton
             // 
             this.programSubmitButton.Enabled = false;
-            this.programSubmitButton.Location = new System.Drawing.Point(260, 249);
+            this.programSubmitButton.Location = new System.Drawing.Point(204, 251);
             this.programSubmitButton.Name = "programSubmitButton";
             this.programSubmitButton.Size = new System.Drawing.Size(75, 23);
             this.programSubmitButton.TabIndex = 4;
@@ -114,7 +114,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(202, 9);
+            this.label2.Location = new System.Drawing.Point(146, 11);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(376, 55);
             this.label2.TabIndex = 25;
@@ -123,7 +123,7 @@
             // updateButton
             // 
             this.updateButton.Enabled = false;
-            this.updateButton.Location = new System.Drawing.Point(260, 293);
+            this.updateButton.Location = new System.Drawing.Point(204, 295);
             this.updateButton.Name = "updateButton";
             this.updateButton.Size = new System.Drawing.Size(75, 23);
             this.updateButton.TabIndex = 29;
@@ -134,7 +134,7 @@
             // deleteButton
             // 
             this.deleteButton.Enabled = false;
-            this.deleteButton.Location = new System.Drawing.Point(260, 339);
+            this.deleteButton.Location = new System.Drawing.Point(204, 341);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(75, 23);
             this.deleteButton.TabIndex = 30;
@@ -146,7 +146,7 @@
             // 
             this.panel1.Controls.Add(this.updateRB);
             this.panel1.Controls.Add(this.newRB);
-            this.panel1.Location = new System.Drawing.Point(102, 252);
+            this.panel1.Location = new System.Drawing.Point(46, 254);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(124, 109);
             this.panel1.TabIndex = 31;
@@ -182,7 +182,7 @@
             this.matrixProgramIdDataGridViewTextBoxColumn,
             this.skillSkillIdDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.matrixProgramsBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(401, 114);
+            this.dataGridView1.Location = new System.Drawing.Point(345, 116);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(240, 248);
             this.dataGridView1.TabIndex = 32;
@@ -207,7 +207,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(627, 399);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.deleteButton);

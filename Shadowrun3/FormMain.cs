@@ -59,5 +59,11 @@ namespace Shadowrun3
             FormSpells sForm = new FormSpells();
             sForm.Show();
         }
+
+        private void runEncounterButton_Click(object sender, EventArgs e)
+        {
+            FormRunEncounter reForm = new FormRunEncounter();
+            reForm.Show();
+        }
     }
 }

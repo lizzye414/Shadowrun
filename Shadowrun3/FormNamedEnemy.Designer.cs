@@ -45,6 +45,8 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.nameTB = new System.Windows.Forms.TextBox();
+            this.namedEnemiesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.shadowrun3ContextDataSet1 = new Shadowrun3.Shadowrun3ContextDataSet1();
             this.SysRatingNB = new System.Windows.Forms.NumericUpDown();
             this.HPNB = new System.Windows.Forms.NumericUpDown();
             this.EdgeNB = new System.Windows.Forms.NumericUpDown();
@@ -52,10 +54,8 @@
             this.StunNB = new System.Windows.Forms.NumericUpDown();
             this.AmmoNB = new System.Windows.Forms.NumericUpDown();
             this.enemyTypeCB = new System.Windows.Forms.ComboBox();
+            this.enemyTypesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.shadowrun3ContextDataSet1 = new Shadowrun3.Shadowrun3ContextDataSet1();
-            this.namedEnemiesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.namedEnemiesTableAdapter = new Shadowrun3.Shadowrun3ContextDataSet1TableAdapters.NamedEnemiesTableAdapter();
             this.namedEnemyIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.currentHPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.currentStunDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,19 +66,19 @@
             this.encounterEncounterIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.enemyTypeEnemyTypeIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.commRatingDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.enemyTypesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.namedEnemiesTableAdapter = new Shadowrun3.Shadowrun3ContextDataSet1TableAdapters.NamedEnemiesTableAdapter();
             this.enemyTypesTableAdapter = new Shadowrun3.Shadowrun3ContextDataSet1TableAdapters.EnemyTypesTableAdapter();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.namedEnemiesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shadowrun3ContextDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SysRatingNB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HPNB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.EdgeNB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MatrixNB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.StunNB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AmmoNB)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.shadowrun3ContextDataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.namedEnemiesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.enemyTypesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -235,6 +235,16 @@
             this.nameTB.Size = new System.Drawing.Size(120, 20);
             this.nameTB.TabIndex = 45;
             // 
+            // namedEnemiesBindingSource
+            // 
+            this.namedEnemiesBindingSource.DataMember = "NamedEnemies";
+            this.namedEnemiesBindingSource.DataSource = this.shadowrun3ContextDataSet1;
+            // 
+            // shadowrun3ContextDataSet1
+            // 
+            this.shadowrun3ContextDataSet1.DataSetName = "Shadowrun3ContextDataSet1";
+            this.shadowrun3ContextDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // SysRatingNB
             // 
             this.SysRatingNB.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.namedEnemiesBindingSource, "CommRating", true));
@@ -308,6 +318,11 @@
             this.enemyTypeCB.ValueMember = "EnemyTypeId";
             this.enemyTypeCB.SelectedIndexChanged += new System.EventHandler(this.enemyTypeCB_SelectedIndexChanged);
             // 
+            // enemyTypesBindingSource
+            // 
+            this.enemyTypesBindingSource.DataMember = "EnemyTypes";
+            this.enemyTypesBindingSource.DataSource = this.shadowrun3ContextDataSet1;
+            // 
             // dataGridView1
             // 
             this.dataGridView1.AutoGenerateColumns = false;
@@ -328,20 +343,6 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(1043, 320);
             this.dataGridView1.TabIndex = 54;
-            // 
-            // shadowrun3ContextDataSet1
-            // 
-            this.shadowrun3ContextDataSet1.DataSetName = "Shadowrun3ContextDataSet1";
-            this.shadowrun3ContextDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // namedEnemiesBindingSource
-            // 
-            this.namedEnemiesBindingSource.DataMember = "NamedEnemies";
-            this.namedEnemiesBindingSource.DataSource = this.shadowrun3ContextDataSet1;
-            // 
-            // namedEnemiesTableAdapter
-            // 
-            this.namedEnemiesTableAdapter.ClearBeforeFill = true;
             // 
             // namedEnemyIdDataGridViewTextBoxColumn
             // 
@@ -403,10 +404,9 @@
             this.commRatingDataGridViewTextBoxColumn.HeaderText = "System Rating";
             this.commRatingDataGridViewTextBoxColumn.Name = "commRatingDataGridViewTextBoxColumn";
             // 
-            // enemyTypesBindingSource
+            // namedEnemiesTableAdapter
             // 
-            this.enemyTypesBindingSource.DataMember = "EnemyTypes";
-            this.enemyTypesBindingSource.DataSource = this.shadowrun3ContextDataSet1;
+            this.namedEnemiesTableAdapter.ClearBeforeFill = true;
             // 
             // enemyTypesTableAdapter
             // 
@@ -416,7 +416,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1426, 450);
+            this.ClientSize = new System.Drawing.Size(1385, 450);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.enemyTypeCB);
             this.Controls.Add(this.AmmoNB);
@@ -444,16 +444,16 @@
             this.Load += new System.EventHandler(this.FormNamedEnemy_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.namedEnemiesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shadowrun3ContextDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SysRatingNB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.HPNB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.EdgeNB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MatrixNB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.StunNB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AmmoNB)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.shadowrun3ContextDataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.namedEnemiesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.enemyTypesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

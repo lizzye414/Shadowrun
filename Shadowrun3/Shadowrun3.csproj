@@ -104,6 +104,12 @@
     <Compile Include="FormEncounter.Designer.cs">
       <DependentUpon>FormEncounter.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormEnemy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEnemy.Designer.cs">
+      <DependentUpon>FormEnemy.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormEnemyType.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +139,12 @@
     </Compile>
     <Compile Include="FormRangedWeapon.Designer.cs">
       <DependentUpon>FormRangedWeapon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRunEncounter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRunEncounter.Designer.cs">
+      <DependentUpon>FormRunEncounter.cs</DependentUpon>
     </Compile>
     <Compile Include="FormSpells.cs">
       <SubType>Form</SubType>
@@ -178,6 +190,9 @@
     <EmbeddedResource Include="FormEncounter.resx">
       <DependentUpon>FormEncounter.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormEnemy.resx">
+      <DependentUpon>FormEnemy.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormEnemyType.resx">
       <DependentUpon>FormEnemyType.cs</DependentUpon>
     </EmbeddedResource>
@@ -195,6 +210,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormRangedWeapon.resx">
       <DependentUpon>FormRangedWeapon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRunEncounter.resx">
+      <DependentUpon>FormRunEncounter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSpells.resx">
       <DependentUpon>FormSpells.cs</DependentUpon>
